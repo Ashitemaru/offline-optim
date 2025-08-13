@@ -1,0 +1,771 @@
+
+[------------------------ LOG START --------------------------]
+[2025-8-14 4:53:18.488][15540][I][DemoC]CmdParser::cmdParse set str key=-input_seq, value=c:/users/ashit/downloads/game_starrail_file_0_slice_7_type_skill.yuv
+[2025-8-14 4:53:18.488][15540][I][DemoC]CmdParser::cmdParse set str key=-output_bin, value=../output\encoded_video\game_starrail_file_0_slice_7_type_skill_winsize60_winint1_dropnum5_mode2.264
+[2025-8-14 4:53:18.488][15540][I][DemoC]CmdParser::cmdParse set int key=-color_space, value=3
+[2025-8-14 4:53:18.488][15540][I][DemoC]CmdParser::cmdParse set int key=-width, value=1920
+[2025-8-14 4:53:18.488][15540][I][DemoC]CmdParser::cmdParse set int key=-height, value=1080
+[2025-8-14 4:53:18.488][15540][I][DemoC]CmdParser::cmdParse set int key=-framerate, value=60
+[2025-8-14 4:53:18.488][15540][I][DemoC]CmdParser::cmdParse set int key=-bitrate, value=36000
+[2025-8-14 4:53:18.488][15540][I][DemoC]CmdParser::cmdParse set int key=-max_bitrate, value=36000
+[2025-8-14 4:53:18.488][15540][I][DemoC]CmdParser::cmdParse set int key=-encoder_type, value=0
+[2025-8-14 4:53:18.488][15540][I][DemoC]CmdParser::cmdParse set int key=-codec_type, value=16
+[2025-8-14 4:53:18.488][15540][I][DemoC]CmdParser::cmdParse set int key=-gpu_index, value=0
+[2025-8-14 4:53:18.488][15540][I][DemoC]CmdParser::cmdParse set int key=-gop_size, value=60
+[2025-8-14 4:53:18.488][15540][I][DemoC]CmdParser::cmdParse set int key=-ref_frames, value=3
+[2025-8-14 4:53:18.488][15540][I][DemoC]CmdParser::cmdParse set int key=-black_frame_detect, value=0
+[2025-8-14 4:53:18.488][15540][I][DemoC]CmdParser::cmdParse set str key=-business_id, value=1
+[2025-8-14 4:53:18.488][15540][I][DemoC]CmdParser::cmdParse set int key=-data_analysis, value=1
+[2025-8-14 4:53:18.488][15540][I][DemoC]CmdParser::cmdParse set int key=-vmaf, value=0
+[2025-8-14 4:53:18.488][15540][I][DemoC]CmdParser::cmdParse set int key=-vmaf_thread_num, value=0
+[2025-8-14 4:53:18.488][15540][I][DemoC]TestEncDecoder::filepath is D:/Ashitemaru/CodingFolder/Projects/offline-optim/bin/framerate_simulator/demo.exe/..
+[2025-8-14 4:53:19.652][15540][I][DemoC]TestEncDecoder::test, gpu in use=0, desc=NVIDIA GeForce RTX 3050 Laptop GPU
+[2025-8-14 4:53:20.184][15540][D][DemoC]TestEncDecoder::OnDataReport, id=11, count=3
+[2025-8-14 4:53:20.184][15540][D][DemoC]TestEncDecoder::OnDataReport, id=11, [avsdk_version]=Local_v3.3.0.1_Apr 27 2023_19:53:14_x64
+[2025-8-14 4:53:20.184][15540][D][DemoC]TestEncDecoder::OnDataReport, id=11, [status]=1
+[2025-8-14 4:53:20.184][15540][D][DemoC]TestEncDecoder::OnDataReport, id=11, [result]=0
+[2025-8-14 4:53:21.596][15540][D][DemoC]TestEncDecoder::OnDataReport, id=11, count=3
+[2025-8-14 4:53:21.596][15540][D][DemoC]TestEncDecoder::OnDataReport, id=11, [avsdk_version]=Local_v3.3.0.1_Apr 27 2023_19:53:14_x64
+[2025-8-14 4:53:21.596][15540][D][DemoC]TestEncDecoder::OnDataReport, id=11, [status]=1
+[2025-8-14 4:53:21.596][15540][D][DemoC]TestEncDecoder::OnDataReport, id=11, [result]=0
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, count=42
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [avsdk_version]=Local_v3.3.0.1_Apr 27 2023_19:53:14_x64
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [engine_type]=2
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [codec_type]=16
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [color_space]=3
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [width]=1920
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [height]=1080
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [input_framerate]=60
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [bitrate]=36000
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [max_bitrate]=36000
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [encoder_info]=type:1;api:11;profile:100;level:-1;rPlatform:1,0;dpb:-1;store:-1;rOS:;rMachine:;ref:3,3;slice:3,1
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [profile]=100
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [rc_info]=mode:4;rate:0.050;quality=0;forceIdr=0;bitrate:0,0;maxBitrate:0,0;svc:0;drop:0;fpsAdapt:0;inFps:60;fpsChange:0,0;bitDownDist:0,0,0,0,0,0,0,0,0,0,0,0,;gIdr:0;gop:60;pause:0;targetSQoE:0.0;SQoE_rc:1
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [data_analysis]=1
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [scene_hint]=motion:0;complexity:0;complexIgnoreNum:0;cScore:0;lanczosNum:0;lScore:0;gpuUsage:0.00;gDist:147,0,0,0,0,0,0,0,0,0,0,0,0,0,0,;sharpen1Num:0;sAQ:0;tAQ:0;qpI:0,51;qpP:0,51
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [timestamps]=49501105
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [status_index]=0
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [in_frames]=147
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [out_frames]=146
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [idr_frames]=3
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [error_frames]=0
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [last_time]=3125
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [packets_out]=10185238
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [encode_time10]=39
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [preprocess_time10]=0
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [postprocess_time10]=0
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [frame_time10]=97
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [store_frame10]=0
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [in_framerate10]=470
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [encode_framerate10]=467
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [out_bitrate]=26074
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [qp10]=248
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [score]=sqoe:9.52;sDist:0,0,0,0,0,0,0,0,0,5,24,30,73,14,0,;psnr:0.00;pDist:;ssim:0.00;ssDist:;vmaf:0.00;vDist:;satd:6943353.00;sqDist:0,15,84,32,9,3,2,0,1,0,0,0,0,0,0,;mvx:227.68;xDist:6,21,12,14,9,7,12,8,7,13,8,8,8,4,9,;mvy:151.76;yDist:9,22,13,9,8,10,14,14,12,13,8,10,3,1,0,;intra:64.60;iDist:1,2,0,8,5,7,6,8,6,10,11,16,46,20,0,;sqoe_fr:9.65;sDist:0,0,0,1,4,2,5,5,8,10,14,16,26,55,0,;rcmd_bitrate:33996;rDist:0,0,0,5,5,12,19,6,75,12,12,
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [encode_time_dist]=0,0,0,28,111,7,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [preprocess_time_dist]=146,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [postprocess_time_dist]=146,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [frame_time_dist]=0,0,0,0,0,139,6,0,0,1,0,0,0,0,0,
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [store_frame_dist]=146,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [input_interval_dist]=0,0,4,141,0,0,0,1,0,0,0,0,0,0,0,
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [output_interval_dist]=0,0,2,143,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [packet_out_dist]=packet:0,0,3,0,0,10,33,70,14,16,0,0,0,0,0,;frameRatio:0,13,68,33,10,3,9,7,1,2,0,0,0,0,0,;gapRatio:0,0,11,8,0,2,3,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [qp_dist]=0,0,0,8,13,20,26,30,24,17,7,1,0,0,0,
+[2025-8-14 4:53:23.308][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [extra_info]=encode1:0;encode2:0;pre1:0;pre2:0;post1:0;post2:0;engines:2;analysis:0,0,0,0,0,0,0,0,0;emsg:;sdr:0,0
+[2025-8-14 4:53:24.709][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, count=36
+[2025-8-14 4:53:24.709][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [avsdk_version]=Local_v3.3.0.1_Apr 27 2023_19:53:14_x64
+[2025-8-14 4:53:24.709][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [engine_type]=2
+[2025-8-14 4:53:24.709][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [codec_type]=16
+[2025-8-14 4:53:24.709][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [render_type]=0
+[2025-8-14 4:53:24.709][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [color_space]=3
+[2025-8-14 4:53:24.709][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [encoder]=0
+[2025-8-14 4:53:24.709][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [width]=1920
+[2025-8-14 4:53:24.709][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [height]=1080
+[2025-8-14 4:53:24.709][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [config_level]=0
+[2025-8-14 4:53:24.709][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [input_framerate]=60
+[2025-8-14 4:53:24.709][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [timestamps]=49502506
+[2025-8-14 4:53:24.709][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [status_index]=0
+[2025-8-14 4:53:24.709][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [in_frames]=270
+[2025-8-14 4:53:24.709][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [out_frames]=269
+[2025-8-14 4:53:24.709][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [idr_frames]=5
+[2025-8-14 4:53:24.709][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [error_frames]=0
+[2025-8-14 4:53:24.709][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [last_time]=3113
+[2025-8-14 4:53:24.709][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [decode_time10]=0
+[2025-8-14 4:53:24.709][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [render_time10]=0
+[2025-8-14 4:53:24.709][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [frame_time10]=29
+[2025-8-14 4:53:24.709][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [store_frame10]=0
+[2025-8-14 4:53:24.709][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [in_framerate10]=867
+[2025-8-14 4:53:24.709][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [decode_framerate10]=864
+[2025-8-14 4:53:24.709][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [render_framerate10]=617
+[2025-8-14 4:53:24.709][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [in_bitrate]=48273
+[2025-8-14 4:53:24.709][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [out_bitrate]=48065
+[2025-8-14 4:53:24.709][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [cpu_freq]=0
+[2025-8-14 4:53:24.709][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [sys_cpu_rate]=0
+[2025-8-14 4:53:24.709][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [app_cpu_rate]=0
+[2025-8-14 4:53:24.709][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [decode_time_dist]=269,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:24.709][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [render_time_dist]=269,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:24.709][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [frame_time_dist]=0,52,216,0,0,0,0,0,0,1,0,0,0,0,0,
+[2025-8-14 4:53:24.709][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [store_frame_dist]=269,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:24.709][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [input_interval_dist]=0,0,7,261,0,0,0,0,1,0,0,0,0,0,0,
+[2025-8-14 4:53:24.709][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [output_interval_dist]=0,0,6,262,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:24.709][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [extra_info]=decode1:0;decode2:0;render1:0;render2:0;;engines:2;history:0;cap:0;native:0;hp:0;rev1:0;rev2:0;rev3:0;rev4:0;
+[2025-8-14 4:53:24.709][10044][D][DemoC]TestEncDecoder::OnEngineMsg, msg_id=30, engine_id=2, param1=0, param2=0
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, count=42
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [avsdk_version]=Local_v3.3.0.1_Apr 27 2023_19:53:14_x64
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [engine_type]=2
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [codec_type]=16
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [color_space]=3
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [width]=1920
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [height]=1080
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [input_framerate]=60
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [bitrate]=36000
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [max_bitrate]=36000
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [encoder_info]=type:1;api:11;profile:100;level:-1;rPlatform:1,0;dpb:-1;store:-1;rOS:;rMachine:;ref:3,3;slice:3,1
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [profile]=100
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [rc_info]=mode:4;rate:0.050;quality=0;forceIdr=0;bitrate:0,0;maxBitrate:0,0;svc:0;drop:0;fpsAdapt:0;inFps:60;fpsChange:0,0;bitDownDist:0,0,0,0,0,0,0,0,0,0,0,0,;gIdr:0;gop:60;pause:0;targetSQoE:0.0;SQoE_rc:1
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [data_analysis]=1
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [scene_hint]=motion:0;complexity:0;complexIgnoreNum:0;cScore:0;lanczosNum:0;lScore:0;gpuUsage:0.00;gDist:271,0,0,0,0,0,0,0,0,0,0,0,0,0,0,;sharpen1Num:0;sAQ:0;tAQ:0;qpI:0,51;qpP:0,51
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [timestamps]=49504222
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [status_index]=1
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [in_frames]=271
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [out_frames]=271
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [idr_frames]=4
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [error_frames]=0
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [last_time]=3117
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [packets_out]=19014490
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [encode_time10]=40
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [preprocess_time10]=0
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [postprocess_time10]=0
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [frame_time10]=96
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [store_frame10]=0
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [in_framerate10]=869
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [encode_framerate10]=869
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [out_bitrate]=48802
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [qp10]=233
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [score]=sqoe:9.72;sDist:0,0,0,0,0,0,0,0,0,2,6,28,113,122,0,;psnr:0.00;pDist:;ssim:0.00;ssDist:;vmaf:0.00;vDist:;satd:6543945.00;sqDist:0,14,207,45,1,4,0,0,0,0,0,0,0,0,0,;mvx:29.00;xDist:21,77,56,27,26,21,12,7,4,7,6,4,1,2,0,;mvy:13.62;yDist:50,119,28,17,8,19,4,5,4,11,6,0,0,0,0,;intra:25.86;iDist:14,8,2,21,67,42,33,25,16,10,11,6,9,7,0,;sqoe_fr:9.79;sDist:0,0,0,0,0,0,2,5,5,11,19,31,37,161,0,;rcmd_bitrate:23233;rDist:0,0,0,39,72,58,30,19,40,11,2,
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [encode_time_dist]=0,0,0,11,256,4,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [preprocess_time_dist]=271,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [postprocess_time_dist]=271,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [frame_time_dist]=0,0,0,0,0,260,11,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [store_frame_dist]=271,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [input_interval_dist]=0,0,6,265,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [output_interval_dist]=0,0,3,268,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [packet_out_dist]=packet:0,1,9,9,3,5,17,169,41,17,0,0,0,0,0,;frameRatio:1,26,86,83,34,11,21,5,2,2,0,0,0,0,0,;gapRatio:0,0,21,14,5,3,2,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [qp_dist]=0,0,0,0,53,64,70,50,27,7,0,0,0,0,0,
+[2025-8-14 4:53:26.425][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [extra_info]=encode1:0;encode2:0;pre1:0;pre2:0;post1:0;post2:0;engines:2;analysis:0,0,0,0,0,0,0,0,0;emsg:;sdr:0,0
+[2025-8-14 4:53:27.827][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, count=36
+[2025-8-14 4:53:27.827][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [avsdk_version]=Local_v3.3.0.1_Apr 27 2023_19:53:14_x64
+[2025-8-14 4:53:27.827][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [engine_type]=2
+[2025-8-14 4:53:27.827][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [codec_type]=16
+[2025-8-14 4:53:27.827][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [render_type]=0
+[2025-8-14 4:53:27.827][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [color_space]=3
+[2025-8-14 4:53:27.827][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [encoder]=0
+[2025-8-14 4:53:27.827][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [width]=1920
+[2025-8-14 4:53:27.827][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [height]=1080
+[2025-8-14 4:53:27.827][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [config_level]=0
+[2025-8-14 4:53:27.827][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [input_framerate]=60
+[2025-8-14 4:53:27.827][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [timestamps]=49505623
+[2025-8-14 4:53:27.827][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [status_index]=1
+[2025-8-14 4:53:27.827][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [in_frames]=255
+[2025-8-14 4:53:27.827][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [out_frames]=256
+[2025-8-14 4:53:27.827][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [idr_frames]=4
+[2025-8-14 4:53:27.827][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [error_frames]=0
+[2025-8-14 4:53:27.827][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [last_time]=3117
+[2025-8-14 4:53:27.827][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [decode_time10]=0
+[2025-8-14 4:53:27.827][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [render_time10]=0
+[2025-8-14 4:53:27.827][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [frame_time10]=31
+[2025-8-14 4:53:27.827][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [store_frame10]=0
+[2025-8-14 4:53:27.827][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [in_framerate10]=818
+[2025-8-14 4:53:27.827][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [decode_framerate10]=821
+[2025-8-14 4:53:27.827][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [render_framerate10]=626
+[2025-8-14 4:53:27.827][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [in_bitrate]=46725
+[2025-8-14 4:53:27.827][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [out_bitrate]=46932
+[2025-8-14 4:53:27.827][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [cpu_freq]=0
+[2025-8-14 4:53:27.827][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [sys_cpu_rate]=0
+[2025-8-14 4:53:27.827][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [app_cpu_rate]=0
+[2025-8-14 4:53:27.827][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [decode_time_dist]=256,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:27.827][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [render_time_dist]=256,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:27.827][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [frame_time_dist]=0,46,199,11,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:27.827][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [store_frame_dist]=256,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:27.827][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [input_interval_dist]=0,0,3,240,12,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:27.827][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [output_interval_dist]=0,0,2,244,10,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:27.827][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [extra_info]=decode1:0;decode2:0;render1:0;render2:0;;engines:2;history:0;cap:0;native:0;hp:0;rev1:0;rev2:0;rev3:0;rev4:0;
+[2025-8-14 4:53:27.827][10044][D][DemoC]TestEncDecoder::OnEngineMsg, msg_id=30, engine_id=2, param1=0, param2=0
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, count=42
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [avsdk_version]=Local_v3.3.0.1_Apr 27 2023_19:53:14_x64
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [engine_type]=2
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [codec_type]=16
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [color_space]=3
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [width]=1920
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [height]=1080
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [input_framerate]=60
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [bitrate]=36000
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [max_bitrate]=36000
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [encoder_info]=type:1;api:11;profile:100;level:-1;rPlatform:1,0;dpb:-1;store:-1;rOS:;rMachine:;ref:3,3;slice:3,1
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [profile]=100
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [rc_info]=mode:4;rate:0.050;quality=0;forceIdr=0;bitrate:0,0;maxBitrate:0,0;svc:0;drop:0;fpsAdapt:0;inFps:60;fpsChange:0,0;bitDownDist:0,0,0,0,0,0,0,0,0,0,0,0,;gIdr:0;gop:60;pause:0;targetSQoE:0.0;SQoE_rc:1
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [data_analysis]=1
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [scene_hint]=motion:0;complexity:0;complexIgnoreNum:0;cScore:0;lanczosNum:0;lScore:0;gpuUsage:0.00;gDist:225,0,0,0,0,0,0,0,0,0,0,0,0,0,0,;sharpen1Num:0;sAQ:0;tAQ:0;qpI:0,51;qpP:0,51
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [timestamps]=49507334
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [status_index]=2
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [in_frames]=225
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [out_frames]=225
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [idr_frames]=4
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [error_frames]=0
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [last_time]=3112
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [packets_out]=15440440
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [encode_time10]=50
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [preprocess_time10]=0
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [postprocess_time10]=0
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [frame_time10]=119
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [store_frame10]=0
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [in_framerate10]=723
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [encode_framerate10]=723
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [out_bitrate]=39693
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [qp10]=246
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [score]=sqoe:9.62;sDist:0,0,0,0,0,0,0,0,1,4,12,41,114,53,0,;psnr:0.00;pDist:;ssim:0.00;ssDist:;vmaf:0.00;vDist:;satd:7202868.00;sqDist:0,18,133,54,17,3,0,0,0,0,0,0,0,0,0,;mvx:57.62;xDist:21,56,26,20,18,22,19,14,6,14,3,4,0,1,1,;mvy:30.49;yDist:40,56,29,18,14,26,16,8,11,3,4,0,0,0,0,;intra:38.77;iDist:17,13,10,7,14,11,17,33,18,21,20,21,11,12,0,;sqoe_fr:9.69;sDist:0,0,0,0,2,2,2,7,12,20,27,30,43,80,0,;rcmd_bitrate:29208;rDist:0,0,6,13,22,33,39,19,67,17,9,
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [encode_time_dist]=0,0,0,0,57,110,53,5,0,0,0,0,0,0,0,
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [preprocess_time_dist]=225,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [postprocess_time_dist]=225,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [frame_time_dist]=0,0,0,0,0,56,80,89,0,0,0,0,0,0,0,
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [store_frame_dist]=225,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [input_interval_dist]=0,0,0,215,10,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [output_interval_dist]=0,0,1,212,12,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [packet_out_dist]=packet:0,1,11,8,1,9,32,106,36,21,0,0,0,0,0,;frameRatio:1,29,92,37,25,11,19,5,1,5,0,0,0,0,0,;gapRatio:0,0,21,7,2,5,2,1,0,0,0,0,0,0,0,
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [qp_dist]=0,0,6,5,18,23,39,67,50,16,1,0,0,0,0,
+[2025-8-14 4:53:29.538][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [extra_info]=encode1:0;encode2:0;pre1:0;pre2:0;post1:0;post2:0;engines:2;analysis:0,0,0,0,0,0,0,0,0;emsg:;sdr:0,0
+[2025-8-14 4:53:30.942][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, count=36
+[2025-8-14 4:53:30.942][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [avsdk_version]=Local_v3.3.0.1_Apr 27 2023_19:53:14_x64
+[2025-8-14 4:53:30.942][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [engine_type]=2
+[2025-8-14 4:53:30.942][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [codec_type]=16
+[2025-8-14 4:53:30.942][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [render_type]=0
+[2025-8-14 4:53:30.942][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [color_space]=3
+[2025-8-14 4:53:30.942][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [encoder]=0
+[2025-8-14 4:53:30.942][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [width]=1920
+[2025-8-14 4:53:30.942][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [height]=1080
+[2025-8-14 4:53:30.942][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [config_level]=0
+[2025-8-14 4:53:30.942][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [input_framerate]=60
+[2025-8-14 4:53:30.942][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [timestamps]=49508739
+[2025-8-14 4:53:30.942][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [status_index]=2
+[2025-8-14 4:53:30.942][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [in_frames]=211
+[2025-8-14 4:53:30.942][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [out_frames]=211
+[2025-8-14 4:53:30.942][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [idr_frames]=4
+[2025-8-14 4:53:30.942][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [error_frames]=0
+[2025-8-14 4:53:30.942][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [last_time]=3116
+[2025-8-14 4:53:30.942][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [decode_time10]=0
+[2025-8-14 4:53:30.942][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [render_time10]=0
+[2025-8-14 4:53:30.942][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [frame_time10]=40
+[2025-8-14 4:53:30.942][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [store_frame10]=0
+[2025-8-14 4:53:30.942][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [in_framerate10]=677
+[2025-8-14 4:53:30.942][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [decode_framerate10]=677
+[2025-8-14 4:53:30.942][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [render_framerate10]=623
+[2025-8-14 4:53:30.942][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [in_bitrate]=36326
+[2025-8-14 4:53:30.942][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [out_bitrate]=36326
+[2025-8-14 4:53:30.942][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [cpu_freq]=0
+[2025-8-14 4:53:30.942][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [sys_cpu_rate]=0
+[2025-8-14 4:53:30.942][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [app_cpu_rate]=0
+[2025-8-14 4:53:30.942][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [decode_time_dist]=211,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:30.942][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [render_time_dist]=211,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:30.942][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [frame_time_dist]=0,0,183,28,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:30.942][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [store_frame_dist]=211,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:30.942][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [input_interval_dist]=0,0,0,180,31,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:30.942][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [output_interval_dist]=0,0,0,180,31,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:30.942][10044][D][DemoC]TestEncDecoder::OnDataReport, id=13, [extra_info]=decode1:0;decode2:0;render1:0;render2:0;;engines:2;history:0;cap:0;native:0;hp:0;rev1:0;rev2:0;rev3:0;rev4:0;
+[2025-8-14 4:53:30.942][10044][D][DemoC]TestEncDecoder::OnEngineMsg, msg_id=30, engine_id=2, param1=0, param2=0
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, count=42
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [avsdk_version]=Local_v3.3.0.1_Apr 27 2023_19:53:14_x64
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [engine_type]=2
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [codec_type]=16
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [color_space]=3
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [width]=1920
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [height]=1080
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [input_framerate]=60
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [bitrate]=36000
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [max_bitrate]=36000
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [encoder_info]=type:1;api:11;profile:100;level:-1;rPlatform:1,0;dpb:-1;store:-1;rOS:;rMachine:;ref:3,3;slice:3,1
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [profile]=100
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [rc_info]=mode:4;rate:0.050;quality=0;forceIdr=0;bitrate:0,0;maxBitrate:0,0;svc:0;drop:0;fpsAdapt:0;inFps:60;fpsChange:0,0;bitDownDist:0,0,0,0,0,0,0,0,0,0,0,0,;gIdr:0;gop:60;pause:0;targetSQoE:0.0;SQoE_rc:1
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [data_analysis]=1
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [scene_hint]=motion:0;complexity:0;complexIgnoreNum:0;cScore:0;lanczosNum:0;lScore:0;gpuUsage:0.00;gDist:211,0,0,0,0,0,0,0,0,0,0,0,0,0,0,;sharpen1Num:0;sAQ:0;tAQ:0;qpI:0,51;qpP:0,51
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [timestamps]=49510449
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [status_index]=3
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [in_frames]=211
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [out_frames]=211
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [idr_frames]=4
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [error_frames]=0
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [last_time]=3115
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [packets_out]=14152866
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [encode_time10]=55
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [preprocess_time10]=0
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [postprocess_time10]=0
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [frame_time10]=127
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [store_frame10]=0
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [in_framerate10]=677
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [encode_framerate10]=677
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [out_bitrate]=36348
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [qp10]=234
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [score]=sqoe:9.65;sDist:0,0,0,0,0,0,0,0,1,3,7,29,107,64,0,;psnr:0.00;pDist:;ssim:0.00;ssDist:;vmaf:0.00;vDist:;satd:6098739.00;sqDist:0,24,154,15,17,1,0,0,0,0,0,0,0,0,0,;mvx:78.39;xDist:16,62,12,23,9,15,15,20,17,9,4,6,2,0,1,;mvy:57.21;yDist:40,37,13,19,23,22,15,7,12,18,3,1,1,0,0,;intra:33.70;iDist:14,39,6,10,15,10,7,15,23,19,12,11,17,13,0,;sqoe_fr:9.73;sDist:0,0,0,0,2,1,3,6,14,11,15,24,34,101,0,;rcmd_bitrate:25823;rDist:0,0,4,33,22,30,27,14,57,14,10,
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [encode_time_dist]=0,0,0,0,0,114,88,9,0,0,0,0,0,0,0,
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [preprocess_time_dist]=211,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [postprocess_time_dist]=211,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [frame_time_dist]=0,0,0,0,0,0,89,122,0,0,0,0,0,0,0,
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [store_frame_dist]=211,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [input_interval_dist]=0,0,0,192,19,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [output_interval_dist]=0,0,0,191,20,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [packet_out_dist]=packet:0,1,9,5,5,6,31,110,25,19,0,0,0,0,0,;frameRatio:1,25,104,32,16,10,12,5,3,3,0,0,0,0,0,;gapRatio:0,1,21,6,3,1,2,1,0,0,0,0,0,0,0,
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [qp_dist]=0,0,4,19,27,32,50,34,25,16,4,0,0,0,0,
+[2025-8-14 4:53:32.652][31068][D][DemoC]TestEncDecoder::OnDataReport, id=33, [extra_info]=encode1:0;encode2:0;pre1:0;pre2:0;post1:0;post2:0;engines:2;analysis:0,0,0,0,0,0,0,0,0;emsg:;sdr:0,0
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, count=44
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [avsdk_version]=Local_v3.3.0.1_Apr 27 2023_19:53:14_x64
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [engine_type]=2
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [codec_type]=16
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [color_space]=3
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [width]=1920
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [height]=1080
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [input_framerate]=60
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [bitrate]=36000
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [max_bitrate]=36000
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [encoder_info]=type:1;api:11;profile:100;level:-1;rPlatform:1,0;dpb:-1;store:-1;rOS:;rMachine:;ref:3,3;slice:3,1
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [profile]=100
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [rc_info]=mode:4;rate:0.050;quality=0;forceIdr=0;bitrate:0,0;maxBitrate:0,0;svc:0;drop:0;fpsAdapt:0;inFps:60;fpsChange:0,0;bitDownDist:0,0,0,0,0,0,0,0,0,0,0,0,;gIdr:0;gop:60;pause:0;targetSQoE:0.0;SQoE_rc:1
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [video_enhance]=0
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [data_analysis]=1
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [scene_hint]=motion:0;complexity:0;complexIgnoreNum:0;cScore:0;lanczosNum:0;lScore:0;gpuUsage:0.00;gDist:900,0,0,0,0,0,0,0,0,0,0,0,0,0,0,;sharpen1Num:0;sAQ:0;tAQ:0;qpI:0,51;qpP:0,51
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [timestamps]=49511134
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [status_index]=4
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [in_frames]=900
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [out_frames]=900
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [idr_frames]=15
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [error_frames]=0
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [last_time]=13
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [packets_out]=60598
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [encode_time10]=46
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [preprocess_time10]=0
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [postprocess_time10]=0
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [frame_time10]=110
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [store_frame10]=0
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [in_framerate10]=684
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [encode_framerate10]=684
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [out_bitrate]=36854
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [qp10]=238
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [score]=sqoe:9.65;sDist:0,0,0,0,0,0,0,0,2,14,50,134,428,272,0,;psnr:0.00;pDist:;ssim:0.00;ssDist:;vmaf:0.00;vDist:;satd:6300367.50;sqDist:0,81,608,153,44,11,2,0,1,0,0,0,0,0,0,;mvx:80.48;xDist:68,231,108,87,65,69,60,54,38,48,21,22,11,7,11,;mvy:47.65;yDist:147,250,86,67,54,79,50,34,44,48,22,13,5,1,0,;intra:39.10;iDist:48,71,21,53,105,73,64,82,65,61,60,61,83,53,0,;sqoe_fr:9.73;sDist:0,0,0,1,8,5,12,24,40,53,80,108,144,425,0,;rcmd_bitrate:27832;rDist:0,0,15,99,130,137,120,62,248,55,34,
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [encode_time_dist]=0,0,0,39,424,265,155,17,0,0,0,0,0,0,0,
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [preprocess_time_dist]=900,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [postprocess_time_dist]=900,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [frame_time_dist]=0,0,0,0,0,455,212,232,0,1,0,0,0,0,0,
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [store_frame_dist]=900,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [input_interval_dist]=0,0,10,857,31,0,0,1,0,0,0,0,0,0,0,
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [output_interval_dist]=0,0,6,859,34,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [packet_out_dist]=packet:0,4,32,22,10,32,122,478,124,76,0,0,0,0,0,;frameRatio:4,96,366,200,90,39,62,23,7,13,0,0,0,0,0,;gapRatio:0,1,78,37,10,12,10,2,0,0,0,0,0,0,0,
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [qp_dist]=0,0,18,39,113,149,187,189,136,56,12,1,0,0,0,
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [extra_info]=encode1:0;encode2:0;pre1:0;pre2:0;post1:0;post2:0;engines:2;analysis:0,0,0,0,0,0,0,0,0;emsg:;svip_enhance:0,0,0,0,0,0;sdr:0,0,0,0
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=34, [device_info]=10.0.-268409356-unknown-NVIDIA GeForce RTX 3050 Laptop GPU  -11th Gen Intel(R) Core(TM) i5-11400H @ 2.70GHz-Aero 1-unknown
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=11, count=3
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=11, [avsdk_version]=Local_v3.3.0.1_Apr 27 2023_19:53:14_x64
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=11, [status]=2
+[2025-8-14 4:53:33.337][15540][D][DemoC]TestEncDecoder::OnDataReport, id=11, [result]=0
+[2025-8-14 4:53:33.387][15540][D][DemoC]TestEncDecoder::OnDataReport, id=14, count=34
+[2025-8-14 4:53:33.387][15540][D][DemoC]TestEncDecoder::OnDataReport, id=14, [avsdk_version]=Local_v3.3.0.1_Apr 27 2023_19:53:14_x64
+[2025-8-14 4:53:33.387][15540][D][DemoC]TestEncDecoder::OnDataReport, id=14, [engine_type]=2
+[2025-8-14 4:53:33.387][15540][D][DemoC]TestEncDecoder::OnDataReport, id=14, [codec_type]=16
+[2025-8-14 4:53:33.387][15540][D][DemoC]TestEncDecoder::OnDataReport, id=14, [render_type]=0
+[2025-8-14 4:53:33.387][15540][D][DemoC]TestEncDecoder::OnDataReport, id=14, [color_space]=3
+[2025-8-14 4:53:33.387][15540][D][DemoC]TestEncDecoder::OnDataReport, id=14, [encoder]=0
+[2025-8-14 4:53:33.387][15540][D][DemoC]TestEncDecoder::OnDataReport, id=14, [width]=1920
+[2025-8-14 4:53:33.387][15540][D][DemoC]TestEncDecoder::OnDataReport, id=14, [height]=1080
+[2025-8-14 4:53:33.387][15540][D][DemoC]TestEncDecoder::OnDataReport, id=14, [config_level]=0
+[2025-8-14 4:53:33.387][15540][D][DemoC]TestEncDecoder::OnDataReport, id=14, [input_framerate]=60
+[2025-8-14 4:53:33.387][15540][D][DemoC]TestEncDecoder::OnDataReport, id=14, [timestamps]=49511184
+[2025-8-14 4:53:33.387][15540][D][DemoC]TestEncDecoder::OnDataReport, id=14, [status_index]=3
+[2025-8-14 4:53:33.387][15540][D][DemoC]TestEncDecoder::OnDataReport, id=14, [in_frames]=900
+[2025-8-14 4:53:33.387][15540][D][DemoC]TestEncDecoder::OnDataReport, id=14, [out_frames]=900
+[2025-8-14 4:53:33.387][15540][D][DemoC]TestEncDecoder::OnDataReport, id=14, [idr_frames]=15
+[2025-8-14 4:53:33.387][15540][D][DemoC]TestEncDecoder::OnDataReport, id=14, [error_frames]=0
+[2025-8-14 4:53:33.387][15540][D][DemoC]TestEncDecoder::OnDataReport, id=14, [last_time]=11
+[2025-8-14 4:53:33.387][15540][D][DemoC]TestEncDecoder::OnDataReport, id=14, [decode_time10]=0
+[2025-8-14 4:53:33.387][15540][D][DemoC]TestEncDecoder::OnDataReport, id=14, [render_time10]=0
+[2025-8-14 4:53:33.387][15540][D][DemoC]TestEncDecoder::OnDataReport, id=14, [frame_time10]=33
+[2025-8-14 4:53:33.387][15540][D][DemoC]TestEncDecoder::OnDataReport, id=14, [store_frame10]=0
+[2025-8-14 4:53:33.387][15540][D][DemoC]TestEncDecoder::OnDataReport, id=14, [in_framerate10]=763
+[2025-8-14 4:53:33.387][15540][D][DemoC]TestEncDecoder::OnDataReport, id=14, [decode_framerate10]=763
+[2025-8-14 4:53:33.387][15540][D][DemoC]TestEncDecoder::OnDataReport, id=14, [render_framerate10]=625
+[2025-8-14 4:53:33.387][15540][D][DemoC]TestEncDecoder::OnDataReport, id=14, [in_bitrate]=41
+[2025-8-14 4:53:33.387][15540][D][DemoC]TestEncDecoder::OnDataReport, id=14, [out_bitrate]=41
+[2025-8-14 4:53:33.387][15540][D][DemoC]TestEncDecoder::OnDataReport, id=14, [decode_time_dist]=900,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:33.387][15540][D][DemoC]TestEncDecoder::OnDataReport, id=14, [render_time_dist]=900,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:33.387][15540][D][DemoC]TestEncDecoder::OnDataReport, id=14, [frame_time_dist]=0,98,735,66,0,0,0,0,0,1,0,0,0,0,0,
+[2025-8-14 4:53:33.387][15540][D][DemoC]TestEncDecoder::OnDataReport, id=14, [store_frame_dist]=900,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:33.387][15540][D][DemoC]TestEncDecoder::OnDataReport, id=14, [input_interval_dist]=0,0,10,825,63,0,0,0,1,0,0,0,0,0,0,
+[2025-8-14 4:53:33.387][15540][D][DemoC]TestEncDecoder::OnDataReport, id=14, [output_interval_dist]=0,0,8,830,61,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:33.387][15540][D][DemoC]TestEncDecoder::OnDataReport, id=14, [extra_info]=decode1:0;decode2:0;render1:0;render2:0;;engines:2;history:0;cap:0;native:0;hp:0;rev1:0;rev2:0;rev3:0;rev4:0;
+[2025-8-14 4:53:33.387][15540][D][DemoC]TestEncDecoder::OnDataReport, id=14, [device_info]=10.0.-268409356-unknown-NVIDIA GeForce RTX 3050 Laptop GPU  -11th Gen Intel(R) Core(TM) i5-11400H @ 2.70GHz-Aero 1-unknown
+[2025-8-14 4:53:33.387][15540][D][DemoC]TestEncDecoder::OnDataReport, id=11, count=3
+[2025-8-14 4:53:33.387][15540][D][DemoC]TestEncDecoder::OnDataReport, id=11, [avsdk_version]=Local_v3.3.0.1_Apr 27 2023_19:53:14_x64
+[2025-8-14 4:53:33.387][15540][D][DemoC]TestEncDecoder::OnDataReport, id=11, [status]=2
+[2025-8-14 4:53:33.387][15540][D][DemoC]TestEncDecoder::OnDataReport, id=11, [result]=0
+[2025-8-14 4:53:33.428][15540][I][DemoC]VideoEngineDemo::main, test_encoder result=0
+
+[------------------------ LOG FINISH -------------------------]
+
+[------------------------ LOG START --------------------------]
+[2025-8-14 5:4:2.200][30824][I][DemoC]CmdParser::cmdParse set str key=-input_seq, value=c:/users/ashit/downloads/game_starrail_file_0_slice_7_type_skill.yuv
+[2025-8-14 5:4:2.200][30824][I][DemoC]CmdParser::cmdParse set str key=-output_bin, value=../output\encoded_video\game_starrail_file_0_slice_7_type_skill_winsize60_winint1_dropnum5_mode0.264
+[2025-8-14 5:4:2.200][30824][I][DemoC]CmdParser::cmdParse set int key=-color_space, value=3
+[2025-8-14 5:4:2.200][30824][I][DemoC]CmdParser::cmdParse set int key=-width, value=1920
+[2025-8-14 5:4:2.200][30824][I][DemoC]CmdParser::cmdParse set int key=-height, value=1080
+[2025-8-14 5:4:2.200][30824][I][DemoC]CmdParser::cmdParse set int key=-framerate, value=60
+[2025-8-14 5:4:2.200][30824][I][DemoC]CmdParser::cmdParse set int key=-bitrate, value=38000
+[2025-8-14 5:4:2.200][30824][I][DemoC]CmdParser::cmdParse set int key=-max_bitrate, value=38000
+[2025-8-14 5:4:2.200][30824][I][DemoC]CmdParser::cmdParse set int key=-encoder_type, value=0
+[2025-8-14 5:4:2.200][30824][I][DemoC]CmdParser::cmdParse set int key=-codec_type, value=16
+[2025-8-14 5:4:2.200][30824][I][DemoC]CmdParser::cmdParse set int key=-gpu_index, value=0
+[2025-8-14 5:4:2.200][30824][I][DemoC]CmdParser::cmdParse set int key=-gop_size, value=60
+[2025-8-14 5:4:2.200][30824][I][DemoC]CmdParser::cmdParse set int key=-ref_frames, value=3
+[2025-8-14 5:4:2.200][30824][I][DemoC]CmdParser::cmdParse set int key=-black_frame_detect, value=0
+[2025-8-14 5:4:2.200][30824][I][DemoC]CmdParser::cmdParse set str key=-business_id, value=1
+[2025-8-14 5:4:2.200][30824][I][DemoC]CmdParser::cmdParse set int key=-data_analysis, value=1
+[2025-8-14 5:4:2.200][30824][I][DemoC]CmdParser::cmdParse set int key=-vmaf, value=0
+[2025-8-14 5:4:2.200][30824][I][DemoC]CmdParser::cmdParse set int key=-vmaf_thread_num, value=0
+[2025-8-14 5:4:2.200][30824][I][DemoC]TestEncDecoder::filepath is D:/Ashitemaru/CodingFolder/Projects/offline-optim/bin/framerate_simulator/demo.exe/..
+[2025-8-14 5:4:3.386][30824][I][DemoC]TestEncDecoder::test, gpu in use=0, desc=NVIDIA GeForce RTX 3050 Laptop GPU
+[2025-8-14 5:4:3.448][30824][D][DemoC]TestEncDecoder::OnDataReport, id=11, count=3
+[2025-8-14 5:4:3.448][30824][D][DemoC]TestEncDecoder::OnDataReport, id=11, [avsdk_version]=Local_v3.3.0.1_Apr 27 2023_19:53:14_x64
+[2025-8-14 5:4:3.448][30824][D][DemoC]TestEncDecoder::OnDataReport, id=11, [status]=1
+[2025-8-14 5:4:3.448][30824][D][DemoC]TestEncDecoder::OnDataReport, id=11, [result]=0
+[2025-8-14 5:4:3.924][30824][D][DemoC]TestEncDecoder::OnDataReport, id=11, count=3
+[2025-8-14 5:4:3.924][30824][D][DemoC]TestEncDecoder::OnDataReport, id=11, [avsdk_version]=Local_v3.3.0.1_Apr 27 2023_19:53:14_x64
+[2025-8-14 5:4:3.924][30824][D][DemoC]TestEncDecoder::OnDataReport, id=11, [status]=1
+[2025-8-14 5:4:3.924][30824][D][DemoC]TestEncDecoder::OnDataReport, id=11, [result]=0
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, count=42
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [avsdk_version]=Local_v3.3.0.1_Apr 27 2023_19:53:14_x64
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [engine_type]=2
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [codec_type]=16
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [color_space]=3
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [width]=1920
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [height]=1080
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [input_framerate]=60
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [bitrate]=38000
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [max_bitrate]=38000
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [encoder_info]=type:1;api:11;profile:100;level:-1;rPlatform:1,0;dpb:-1;store:-1;rOS:;rMachine:;ref:3,3;slice:3,1
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [profile]=100
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [rc_info]=mode:4;rate:0.050;quality=0;forceIdr=0;bitrate:0,0;maxBitrate:0,0;svc:0;drop:0;fpsAdapt:0;inFps:60;fpsChange:0,0;bitDownDist:0,0,0,0,0,0,0,0,0,0,0,0,;gIdr:0;gop:60;pause:0;targetSQoE:0.0;SQoE_rc:1
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [data_analysis]=1
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [scene_hint]=motion:0;complexity:0;complexIgnoreNum:0;cScore:0;lanczosNum:0;lScore:0;gpuUsage:0.00;gDist:230,0,0,0,0,0,0,0,0,0,0,0,0,0,0,;sharpen1Num:0;sAQ:0;tAQ:0;qpI:0,51;qpP:0,51
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [timestamps]=50144365
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [status_index]=0
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [in_frames]=230
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [out_frames]=229
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [idr_frames]=4
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [error_frames]=0
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [last_time]=3119
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [packets_out]=16688864
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [encode_time10]=39
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [preprocess_time10]=0
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [postprocess_time10]=0
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [frame_time10]=97
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [store_frame10]=0
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [in_framerate10]=737
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [encode_framerate10]=734
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [out_bitrate]=42806
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [qp10]=227
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [score]=sqoe:9.68;sDist:0,0,0,0,0,0,0,0,1,3,14,34,82,95,0,;psnr:0.00;pDist:;ssim:0.00;ssDist:;vmaf:0.00;vDist:;satd:6281692.00;sqDist:0,22,159,38,4,3,2,0,1,0,0,0,0,0,0,;mvx:88.87;xDist:18,66,28,23,11,10,12,7,6,17,5,11,8,4,3,;mvy:79.31;yDist:36,82,12,9,10,10,14,11,12,18,3,6,5,1,0,;intra:43.88;iDist:9,5,1,32,49,9,6,10,8,11,10,15,42,22,0,;sqoe_fr:9.78;sDist:0,0,0,1,4,1,2,4,5,14,12,17,26,143,0,;rcmd_bitrate:26103;rDist:0,0,1,42,44,13,19,12,75,11,12,
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [encode_time_dist]=0,0,0,33,190,6,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [preprocess_time_dist]=229,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [postprocess_time_dist]=229,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [frame_time_dist]=0,0,0,0,0,222,6,0,0,1,0,0,0,0,0,
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [store_frame_dist]=229,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [input_interval_dist]=0,0,10,218,0,0,0,1,0,0,0,0,0,0,0,
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [output_interval_dist]=0,0,10,218,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [packet_out_dist]=packet:0,0,4,2,4,12,27,115,47,18,0,0,0,0,0,;frameRatio:0,25,100,47,31,8,7,6,1,4,0,0,0,0,0,;gapRatio:0,2,13,17,2,2,2,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [qp_dist]=0,0,1,19,77,32,28,29,27,11,4,1,0,0,0,
+[2025-8-14 5:4:6.568][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [extra_info]=encode1:0;encode2:0;pre1:0;pre2:0;post1:0;post2:0;engines:2;analysis:0,0,0,0,0,0,0,0,0;emsg:;sdr:0,0
+[2025-8-14 5:4:7.035][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, count=36
+[2025-8-14 5:4:7.035][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [avsdk_version]=Local_v3.3.0.1_Apr 27 2023_19:53:14_x64
+[2025-8-14 5:4:7.035][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [engine_type]=2
+[2025-8-14 5:4:7.035][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [codec_type]=16
+[2025-8-14 5:4:7.035][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [render_type]=0
+[2025-8-14 5:4:7.035][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [color_space]=3
+[2025-8-14 5:4:7.035][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [encoder]=0
+[2025-8-14 5:4:7.035][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [width]=1920
+[2025-8-14 5:4:7.035][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [height]=1080
+[2025-8-14 5:4:7.035][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [config_level]=0
+[2025-8-14 5:4:7.035][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [input_framerate]=60
+[2025-8-14 5:4:7.035][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [timestamps]=50144832
+[2025-8-14 5:4:7.035][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [status_index]=0
+[2025-8-14 5:4:7.035][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [in_frames]=270
+[2025-8-14 5:4:7.035][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [out_frames]=270
+[2025-8-14 5:4:7.035][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [idr_frames]=5
+[2025-8-14 5:4:7.035][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [error_frames]=0
+[2025-8-14 5:4:7.035][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [last_time]=3112
+[2025-8-14 5:4:7.035][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [decode_time10]=0
+[2025-8-14 5:4:7.035][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [render_time10]=0
+[2025-8-14 5:4:7.035][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [frame_time10]=30
+[2025-8-14 5:4:7.035][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [store_frame10]=0
+[2025-8-14 5:4:7.035][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [in_framerate10]=868
+[2025-8-14 5:4:7.035][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [decode_framerate10]=868
+[2025-8-14 5:4:7.035][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [render_framerate10]=617
+[2025-8-14 5:4:7.035][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [in_bitrate]=50771
+[2025-8-14 5:4:7.035][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [out_bitrate]=50771
+[2025-8-14 5:4:7.035][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [cpu_freq]=0
+[2025-8-14 5:4:7.035][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [sys_cpu_rate]=0
+[2025-8-14 5:4:7.035][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [app_cpu_rate]=0
+[2025-8-14 5:4:7.035][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [decode_time_dist]=270,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:7.035][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [render_time_dist]=270,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:7.035][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [frame_time_dist]=0,34,235,0,0,0,0,0,0,1,0,0,0,0,0,
+[2025-8-14 5:4:7.035][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [store_frame_dist]=270,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:7.035][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [input_interval_dist]=0,0,8,260,0,0,0,1,0,0,0,0,0,0,0,
+[2025-8-14 5:4:7.035][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [output_interval_dist]=0,0,7,262,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:7.035][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [extra_info]=decode1:0;decode2:0;render1:0;render2:0;;engines:2;history:0;cap:0;native:0;hp:0;rev1:0;rev2:0;rev3:0;rev4:0;
+[2025-8-14 5:4:7.035][23924][D][DemoC]TestEncDecoder::OnEngineMsg, msg_id=30, engine_id=2, param1=0, param2=0
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, count=42
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [avsdk_version]=Local_v3.3.0.1_Apr 27 2023_19:53:14_x64
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [engine_type]=2
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [codec_type]=16
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [color_space]=3
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [width]=1920
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [height]=1080
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [input_framerate]=60
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [bitrate]=38000
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [max_bitrate]=38000
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [encoder_info]=type:1;api:11;profile:100;level:-1;rPlatform:1,0;dpb:-1;store:-1;rOS:;rMachine:;ref:3,3;slice:3,1
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [profile]=100
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [rc_info]=mode:4;rate:0.050;quality=0;forceIdr=0;bitrate:0,0;maxBitrate:0,0;svc:0;drop:0;fpsAdapt:0;inFps:60;fpsChange:0,0;bitDownDist:0,0,0,0,0,0,0,0,0,0,0,0,;gIdr:0;gop:60;pause:0;targetSQoE:0.0;SQoE_rc:1
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [data_analysis]=1
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [scene_hint]=motion:0;complexity:0;complexIgnoreNum:0;cScore:0;lanczosNum:0;lScore:0;gpuUsage:0.00;gDist:272,0,0,0,0,0,0,0,0,0,0,0,0,0,0,;sharpen1Num:0;sAQ:0;tAQ:0;qpI:0,51;qpP:0,51
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [timestamps]=50147478
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [status_index]=1
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [in_frames]=272
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [out_frames]=272
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [idr_frames]=5
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [error_frames]=0
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [last_time]=3113
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [packets_out]=20365809
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [encode_time10]=40
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [preprocess_time10]=0
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [postprocess_time10]=0
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [frame_time10]=97
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [store_frame10]=0
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [in_framerate10]=874
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [encode_framerate10]=874
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [out_bitrate]=52337
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [qp10]=243
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [score]=sqoe:9.66;sDist:0,0,0,0,0,0,0,0,0,4,7,45,137,79,0,;psnr:0.00;pDist:;ssim:0.00;ssDist:;vmaf:0.00;vDist:;satd:7050531.00;sqDist:0,10,188,64,5,5,0,0,0,0,0,0,0,0,0,;mvx:43.50;xDist:11,69,32,41,27,32,18,9,8,11,3,5,4,1,1,;mvy:29.79;yDist:26,90,37,31,26,24,12,9,3,6,5,3,0,0,0,;intra:35.47;iDist:5,20,2,0,34,38,39,31,16,22,27,18,11,9,0,;sqoe_fr:9.73;sDist:0,0,0,0,0,0,3,6,8,21,32,46,29,127,0,;rcmd_bitrate:27520;rDist:0,0,0,6,50,60,32,41,56,18,9,
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [encode_time_dist]=0,0,0,14,247,11,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [preprocess_time_dist]=272,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [postprocess_time_dist]=272,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [frame_time_dist]=0,0,0,0,0,260,12,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [store_frame_dist]=272,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [input_interval_dist]=0,0,5,267,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [output_interval_dist]=0,0,10,262,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [packet_out_dist]=packet:0,0,3,4,9,13,15,126,82,20,0,0,0,0,0,;frameRatio:0,29,95,63,43,19,10,6,4,3,0,0,0,0,0,;gapRatio:0,4,14,12,4,3,7,1,0,0,0,0,0,0,0,
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [qp_dist]=0,0,0,1,11,77,55,67,46,15,0,0,0,0,0,
+[2025-8-14 5:4:9.681][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [extra_info]=encode1:0;encode2:0;pre1:0;pre2:0;post1:0;post2:0;engines:2;analysis:0,0,0,0,0,0,0,0,0;emsg:;sdr:0,0
+[2025-8-14 5:4:10.148][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, count=36
+[2025-8-14 5:4:10.148][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [avsdk_version]=Local_v3.3.0.1_Apr 27 2023_19:53:14_x64
+[2025-8-14 5:4:10.148][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [engine_type]=2
+[2025-8-14 5:4:10.148][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [codec_type]=16
+[2025-8-14 5:4:10.148][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [render_type]=0
+[2025-8-14 5:4:10.148][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [color_space]=3
+[2025-8-14 5:4:10.148][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [encoder]=0
+[2025-8-14 5:4:10.148][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [width]=1920
+[2025-8-14 5:4:10.148][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [height]=1080
+[2025-8-14 5:4:10.148][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [config_level]=0
+[2025-8-14 5:4:10.148][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [input_framerate]=60
+[2025-8-14 5:4:10.148][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [timestamps]=50147944
+[2025-8-14 5:4:10.148][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [status_index]=1
+[2025-8-14 5:4:10.148][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [in_frames]=273
+[2025-8-14 5:4:10.148][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [out_frames]=273
+[2025-8-14 5:4:10.148][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [idr_frames]=5
+[2025-8-14 5:4:10.148][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [error_frames]=0
+[2025-8-14 5:4:10.148][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [last_time]=3112
+[2025-8-14 5:4:10.148][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [decode_time10]=0
+[2025-8-14 5:4:10.148][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [render_time10]=0
+[2025-8-14 5:4:10.148][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [frame_time10]=29
+[2025-8-14 5:4:10.148][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [store_frame10]=0
+[2025-8-14 5:4:10.148][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [in_framerate10]=877
+[2025-8-14 5:4:10.148][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [decode_framerate10]=877
+[2025-8-14 5:4:10.148][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [render_framerate10]=630
+[2025-8-14 5:4:10.148][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [in_bitrate]=52265
+[2025-8-14 5:4:10.148][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [out_bitrate]=52265
+[2025-8-14 5:4:10.148][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [cpu_freq]=0
+[2025-8-14 5:4:10.148][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [sys_cpu_rate]=0
+[2025-8-14 5:4:10.148][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [app_cpu_rate]=0
+[2025-8-14 5:4:10.148][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [decode_time_dist]=273,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:10.148][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [render_time_dist]=273,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:10.148][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [frame_time_dist]=0,40,233,0,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:10.148][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [store_frame_dist]=273,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:10.148][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [input_interval_dist]=0,0,6,267,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:10.148][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [output_interval_dist]=0,0,7,266,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:10.148][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [extra_info]=decode1:0;decode2:0;render1:0;render2:0;;engines:2;history:0;cap:0;native:0;hp:0;rev1:0;rev2:0;rev3:0;rev4:0;
+[2025-8-14 5:4:10.148][23924][D][DemoC]TestEncDecoder::OnEngineMsg, msg_id=30, engine_id=2, param1=0, param2=0
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, count=42
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [avsdk_version]=Local_v3.3.0.1_Apr 27 2023_19:53:14_x64
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [engine_type]=2
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [codec_type]=16
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [color_space]=3
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [width]=1920
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [height]=1080
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [input_framerate]=60
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [bitrate]=38000
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [max_bitrate]=38000
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [encoder_info]=type:1;api:11;profile:100;level:-1;rPlatform:1,0;dpb:-1;store:-1;rOS:;rMachine:;ref:3,3;slice:3,1
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [profile]=100
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [rc_info]=mode:4;rate:0.050;quality=0;forceIdr=0;bitrate:0,0;maxBitrate:0,0;svc:0;drop:0;fpsAdapt:0;inFps:60;fpsChange:0,0;bitDownDist:0,0,0,0,0,0,0,0,0,0,0,0,;gIdr:0;gop:60;pause:0;targetSQoE:0.0;SQoE_rc:1
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [data_analysis]=1
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [scene_hint]=motion:0;complexity:0;complexIgnoreNum:0;cScore:0;lanczosNum:0;lScore:0;gpuUsage:0.00;gDist:225,0,0,0,0,0,0,0,0,0,0,0,0,0,0,;sharpen1Num:0;sAQ:0;tAQ:0;qpI:0,51;qpP:0,51
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [timestamps]=50150591
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [status_index]=2
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [in_frames]=225
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [out_frames]=225
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [idr_frames]=4
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [error_frames]=0
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [last_time]=3113
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [packets_out]=15929989
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [encode_time10]=52
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [preprocess_time10]=0
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [postprocess_time10]=0
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [frame_time10]=119
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [store_frame10]=0
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [in_framerate10]=723
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [encode_framerate10]=723
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [out_bitrate]=40938
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [qp10]=239
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [score]=sqoe:9.65;sDist:0,0,0,0,0,0,0,0,0,1,7,45,105,67,0,;psnr:0.00;pDist:;ssim:0.00;ssDist:;vmaf:0.00;vDist:;satd:6816279.00;sqDist:0,21,142,38,22,2,0,0,0,0,0,0,0,0,0,;mvx:95.80;xDist:21,42,15,23,11,25,20,21,15,13,4,11,1,2,1,;mvy:65.45;yDist:38,45,13,18,15,28,15,9,20,13,8,3,0,0,0,;intra:43.05;iDist:17,8,13,7,14,7,8,27,31,28,16,23,13,13,0,;sqoe_fr:9.70;sDist:0,0,0,0,1,3,7,12,9,16,32,17,24,104,0,;rcmd_bitrate:29259;rDist:0,0,12,18,24,27,25,15,64,17,23,
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [encode_time_dist]=0,0,0,5,38,102,78,2,0,0,0,0,0,0,0,
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [preprocess_time_dist]=225,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [postprocess_time_dist]=225,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [frame_time_dist]=0,0,0,0,0,44,104,77,0,0,0,0,0,0,0,
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [store_frame_dist]=225,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [input_interval_dist]=0,0,1,216,8,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [output_interval_dist]=0,0,1,217,7,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [packet_out_dist]=packet:0,1,5,6,3,8,27,131,25,18,1,0,0,0,0,;frameRatio:1,22,123,39,14,6,9,5,1,5,0,0,0,0,0,;gapRatio:0,4,20,5,3,0,4,2,0,0,0,0,0,0,0,
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [qp_dist]=0,0,13,17,25,17,40,33,52,27,1,0,0,0,0,
+[2025-8-14 5:4:12.794][1436][D][DemoC]TestEncDecoder::OnDataReport, id=33, [extra_info]=encode1:0;encode2:0;pre1:0;pre2:0;post1:0;post2:0;engines:2;analysis:0,0,0,0,0,0,0,0,0;emsg:;sdr:0,0
+[2025-8-14 5:4:13.260][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, count=36
+[2025-8-14 5:4:13.260][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [avsdk_version]=Local_v3.3.0.1_Apr 27 2023_19:53:14_x64
+[2025-8-14 5:4:13.260][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [engine_type]=2
+[2025-8-14 5:4:13.260][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [codec_type]=16
+[2025-8-14 5:4:13.260][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [render_type]=0
+[2025-8-14 5:4:13.260][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [color_space]=3
+[2025-8-14 5:4:13.260][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [encoder]=0
+[2025-8-14 5:4:13.260][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [width]=1920
+[2025-8-14 5:4:13.260][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [height]=1080
+[2025-8-14 5:4:13.260][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [config_level]=0
+[2025-8-14 5:4:13.260][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [input_framerate]=60
+[2025-8-14 5:4:13.260][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [timestamps]=50151057
+[2025-8-14 5:4:13.260][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [status_index]=2
+[2025-8-14 5:4:13.260][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [in_frames]=216
+[2025-8-14 5:4:13.260][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [out_frames]=215
+[2025-8-14 5:4:13.260][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [idr_frames]=3
+[2025-8-14 5:4:13.260][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [error_frames]=0
+[2025-8-14 5:4:13.260][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [last_time]=3113
+[2025-8-14 5:4:13.260][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [decode_time10]=0
+[2025-8-14 5:4:13.260][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [render_time10]=0
+[2025-8-14 5:4:13.260][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [frame_time10]=41
+[2025-8-14 5:4:13.260][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [store_frame10]=0
+[2025-8-14 5:4:13.260][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [in_framerate10]=694
+[2025-8-14 5:4:13.260][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [decode_framerate10]=691
+[2025-8-14 5:4:13.260][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [render_framerate10]=623
+[2025-8-14 5:4:13.260][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [in_bitrate]=39582
+[2025-8-14 5:4:13.260][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [out_bitrate]=39373
+[2025-8-14 5:4:13.260][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [cpu_freq]=0
+[2025-8-14 5:4:13.260][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [sys_cpu_rate]=0
+[2025-8-14 5:4:13.260][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [app_cpu_rate]=0
+[2025-8-14 5:4:13.260][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [decode_time_dist]=215,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:13.260][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [render_time_dist]=215,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:13.260][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [frame_time_dist]=0,2,185,28,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:13.260][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [store_frame_dist]=215,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:13.260][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [input_interval_dist]=0,0,0,200,16,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:13.260][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [output_interval_dist]=0,0,0,196,19,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:13.260][23924][D][DemoC]TestEncDecoder::OnDataReport, id=13, [extra_info]=decode1:0;decode2:0;render1:0;render2:0;;engines:2;history:0;cap:0;native:0;hp:0;rev1:0;rev2:0;rev3:0;rev4:0;
+[2025-8-14 5:4:13.260][23924][D][DemoC]TestEncDecoder::OnEngineMsg, msg_id=30, engine_id=2, param1=0, param2=0
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, count=44
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [avsdk_version]=Local_v3.3.0.1_Apr 27 2023_19:53:14_x64
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [engine_type]=2
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [codec_type]=16
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [color_space]=3
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [width]=1920
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [height]=1080
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [input_framerate]=60
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [bitrate]=38000
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [max_bitrate]=38000
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [encoder_info]=type:1;api:11;profile:100;level:-1;rPlatform:1,0;dpb:-1;store:-1;rOS:;rMachine:;ref:3,3;slice:3,1
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [profile]=100
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [rc_info]=mode:4;rate:0.050;quality=0;forceIdr=0;bitrate:0,0;maxBitrate:0,0;svc:0;drop:0;fpsAdapt:0;inFps:60;fpsChange:0,0;bitDownDist:0,0,0,0,0,0,0,0,0,0,0,0,;gIdr:0;gop:60;pause:0;targetSQoE:0.0;SQoE_rc:1
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [video_enhance]=0
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [data_analysis]=1
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [scene_hint]=motion:0;complexity:0;complexIgnoreNum:0;cScore:0;lanczosNum:0;lScore:0;gpuUsage:0.00;gDist:900,0,0,0,0,0,0,0,0,0,0,0,0,0,0,;sharpen1Num:0;sAQ:0;tAQ:0;qpI:0,51;qpP:0,51
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [timestamps]=50153104
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [status_index]=3
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [in_frames]=900
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [out_frames]=900
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [idr_frames]=15
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [error_frames]=0
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [last_time]=11
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [packets_out]=64081
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [encode_time10]=45
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [preprocess_time10]=0
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [postprocess_time10]=0
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [frame_time10]=108
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [store_frame10]=0
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [in_framerate10]=759
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [encode_framerate10]=759
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [out_bitrate]=43232
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [qp10]=231
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [score]=sqoe:9.68;sDist:0,0,0,0,0,0,0,0,1,8,30,132,404,325,0,;psnr:0.00;pDist:;ssim:0.00;ssDist:;vmaf:0.00;vDist:;satd:6252861.00;sqDist:0,87,612,155,33,10,2,0,1,0,0,0,0,0,0,;mvx:78.02;xDist:67,244,92,99,59,84,58,45,38,47,14,27,14,7,5,;mvy:45.59;yDist:134,269,79,75,66,75,43,32,41,45,18,16,6,1,0,;intra:37.99;iDist:37,76,29,56,117,67,60,75,69,65,61,66,72,50,0,;sqoe_fr:9.75;sDist:0,0,0,1,6,4,12,23,25,58,89,94,98,490,0,;rcmd_bitrate:27912;rDist:0,0,27,103,142,133,88,82,227,52,46,
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [encode_time_dist]=0,0,0,52,475,225,135,13,0,0,0,0,0,0,0,
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [preprocess_time_dist]=900,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [postprocess_time_dist]=900,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [frame_time_dist]=0,0,0,0,0,526,217,156,0,1,0,0,0,0,0,
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [store_frame_dist]=900,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [input_interval_dist]=0,0,16,868,14,0,0,1,0,0,0,0,0,0,0,
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [output_interval_dist]=0,0,21,862,16,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [packet_out_dist]=packet:0,1,14,17,19,37,97,458,183,73,1,0,0,0,0,;frameRatio:1,90,405,182,103,40,36,20,9,14,0,0,0,0,0,;gapRatio:0,12,60,40,10,9,14,5,0,0,0,0,0,0,0,
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [qp_dist]=0,0,32,68,127,165,151,158,140,53,5,1,0,0,0,
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [extra_info]=encode1:0;encode2:0;pre1:0;pre2:0;post1:0;post2:0;engines:2;analysis:0,0,0,0,0,0,0,0,0;emsg:;svip_enhance:0,0,0,0,0,0;sdr:0,0,0,0
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=34, [device_info]=10.0.-268409356-unknown-NVIDIA GeForce RTX 3050 Laptop GPU  -11th Gen Intel(R) Core(TM) i5-11400H @ 2.70GHz-Aero 1-unknown
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=11, count=3
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=11, [avsdk_version]=Local_v3.3.0.1_Apr 27 2023_19:53:14_x64
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=11, [status]=2
+[2025-8-14 5:4:15.308][30824][D][DemoC]TestEncDecoder::OnDataReport, id=11, [result]=0
+[2025-8-14 5:4:15.345][30824][D][DemoC]TestEncDecoder::OnDataReport, id=14, count=34
+[2025-8-14 5:4:15.345][30824][D][DemoC]TestEncDecoder::OnDataReport, id=14, [avsdk_version]=Local_v3.3.0.1_Apr 27 2023_19:53:14_x64
+[2025-8-14 5:4:15.345][30824][D][DemoC]TestEncDecoder::OnDataReport, id=14, [engine_type]=2
+[2025-8-14 5:4:15.345][30824][D][DemoC]TestEncDecoder::OnDataReport, id=14, [codec_type]=16
+[2025-8-14 5:4:15.345][30824][D][DemoC]TestEncDecoder::OnDataReport, id=14, [render_type]=0
+[2025-8-14 5:4:15.345][30824][D][DemoC]TestEncDecoder::OnDataReport, id=14, [color_space]=3
+[2025-8-14 5:4:15.345][30824][D][DemoC]TestEncDecoder::OnDataReport, id=14, [encoder]=0
+[2025-8-14 5:4:15.345][30824][D][DemoC]TestEncDecoder::OnDataReport, id=14, [width]=1920
+[2025-8-14 5:4:15.345][30824][D][DemoC]TestEncDecoder::OnDataReport, id=14, [height]=1080
+[2025-8-14 5:4:15.345][30824][D][DemoC]TestEncDecoder::OnDataReport, id=14, [config_level]=0
+[2025-8-14 5:4:15.345][30824][D][DemoC]TestEncDecoder::OnDataReport, id=14, [input_framerate]=60
+[2025-8-14 5:4:15.345][30824][D][DemoC]TestEncDecoder::OnDataReport, id=14, [timestamps]=50153141
+[2025-8-14 5:4:15.345][30824][D][DemoC]TestEncDecoder::OnDataReport, id=14, [status_index]=3
+[2025-8-14 5:4:15.345][30824][D][DemoC]TestEncDecoder::OnDataReport, id=14, [in_frames]=900
+[2025-8-14 5:4:15.345][30824][D][DemoC]TestEncDecoder::OnDataReport, id=14, [out_frames]=900
+[2025-8-14 5:4:15.345][30824][D][DemoC]TestEncDecoder::OnDataReport, id=14, [idr_frames]=15
+[2025-8-14 5:4:15.345][30824][D][DemoC]TestEncDecoder::OnDataReport, id=14, [error_frames]=0
+[2025-8-14 5:4:15.345][30824][D][DemoC]TestEncDecoder::OnDataReport, id=14, [last_time]=11
+[2025-8-14 5:4:15.345][30824][D][DemoC]TestEncDecoder::OnDataReport, id=14, [decode_time10]=0
+[2025-8-14 5:4:15.345][30824][D][DemoC]TestEncDecoder::OnDataReport, id=14, [render_time10]=0
+[2025-8-14 5:4:15.345][30824][D][DemoC]TestEncDecoder::OnDataReport, id=14, [frame_time10]=33
+[2025-8-14 5:4:15.345][30824][D][DemoC]TestEncDecoder::OnDataReport, id=14, [store_frame10]=0
+[2025-8-14 5:4:15.345][30824][D][DemoC]TestEncDecoder::OnDataReport, id=14, [in_framerate10]=788
+[2025-8-14 5:4:15.345][30824][D][DemoC]TestEncDecoder::OnDataReport, id=14, [decode_framerate10]=788
+[2025-8-14 5:4:15.345][30824][D][DemoC]TestEncDecoder::OnDataReport, id=14, [render_framerate10]=625
+[2025-8-14 5:4:15.345][30824][D][DemoC]TestEncDecoder::OnDataReport, id=14, [in_bitrate]=45
+[2025-8-14 5:4:15.345][30824][D][DemoC]TestEncDecoder::OnDataReport, id=14, [out_bitrate]=45
+[2025-8-14 5:4:15.345][30824][D][DemoC]TestEncDecoder::OnDataReport, id=14, [decode_time_dist]=900,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:15.345][30824][D][DemoC]TestEncDecoder::OnDataReport, id=14, [render_time_dist]=900,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:15.345][30824][D][DemoC]TestEncDecoder::OnDataReport, id=14, [frame_time_dist]=0,76,779,44,0,0,0,0,0,1,0,0,0,0,0,
+[2025-8-14 5:4:15.345][30824][D][DemoC]TestEncDecoder::OnDataReport, id=14, [store_frame_dist]=900,0,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:15.345][30824][D][DemoC]TestEncDecoder::OnDataReport, id=14, [input_interval_dist]=0,0,14,856,28,0,0,1,0,0,0,0,0,0,0,
+[2025-8-14 5:4:15.345][30824][D][DemoC]TestEncDecoder::OnDataReport, id=14, [output_interval_dist]=0,0,14,852,33,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:15.345][30824][D][DemoC]TestEncDecoder::OnDataReport, id=14, [extra_info]=decode1:0;decode2:0;render1:0;render2:0;;engines:2;history:0;cap:0;native:0;hp:0;rev1:0;rev2:0;rev3:0;rev4:0;
+[2025-8-14 5:4:15.345][30824][D][DemoC]TestEncDecoder::OnDataReport, id=14, [device_info]=10.0.-268409356-unknown-NVIDIA GeForce RTX 3050 Laptop GPU  -11th Gen Intel(R) Core(TM) i5-11400H @ 2.70GHz-Aero 1-unknown
+[2025-8-14 5:4:15.345][30824][D][DemoC]TestEncDecoder::OnDataReport, id=11, count=3
+[2025-8-14 5:4:15.345][30824][D][DemoC]TestEncDecoder::OnDataReport, id=11, [avsdk_version]=Local_v3.3.0.1_Apr 27 2023_19:53:14_x64
+[2025-8-14 5:4:15.345][30824][D][DemoC]TestEncDecoder::OnDataReport, id=11, [status]=2
+[2025-8-14 5:4:15.345][30824][D][DemoC]TestEncDecoder::OnDataReport, id=11, [result]=0
+[2025-8-14 5:4:15.370][30824][I][DemoC]VideoEngineDemo::main, test_encoder result=0
+
+[------------------------ LOG FINISH -------------------------]

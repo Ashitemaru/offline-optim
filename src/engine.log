@@ -1,0 +1,746 @@
+
+[------------------------ LOG START --------------------------]
+[2025-8-14 4:53:20.149][15540][I][Engine]ConfigUtils::filepath is D:/Ashitemaru/CodingFolder/Projects/offline-optim/bin/framerate_simulator/VideoEngine64.dll/..
+[2025-8-14 4:53:20.149][15540][I][Engine]VideoEngineCore::VideoEngineCore, engine_id=1, engines=1
+[2025-8-14 4:53:20.149][15540][I][Common]MultiThread::MultiThread, num=1
+[2025-8-14 4:53:20.149][15540][I][Common]MultiThread::MultiThread, num=3
+[2025-8-14 4:53:20.149][15540][I][Engine]VideoEngine::CVideoEngine create, version=Local_v3.3.0.1_Apr 27 2023_19:53:14_x64, device_info=10.0.-268409356-unknown-NVIDIA GeForce RTX 3050 Laptop GPU  -11th Gen Intel(R) Core(TM) i5-11400H @ 2.70GHz-Aero 1-unknown
+[2025-8-14 4:53:20.149][15540][I][Engine]VideoEngineCore::VideoEngineCore, engine_id=2, engines=2
+[2025-8-14 4:53:20.149][15540][I][Common]MultiThread::MultiThread, num=1
+[2025-8-14 4:53:20.149][15540][I][Common]MultiThread::MultiThread, num=3
+[2025-8-14 4:53:20.149][15540][I][Engine]VideoEngine::CVideoEngine create, version=Local_v3.3.0.1_Apr 27 2023_19:53:14_x64, device_info=10.0.-268409356-unknown-NVIDIA GeForce RTX 3050 Laptop GPU  -11th Gen Intel(R) Core(TM) i5-11400H @ 2.70GHz-Aero 1-unknown
+[2025-8-14 4:53:20.149][15540][I][Common]DeviceUtils::findEncoderTypeByDevice11 Nvidia, VendorId=4318, Description=NVIDIA GeForce RTX 3050 Laptop GPU
+[2025-8-14 4:53:20.150][15540][I][Engine]ConfigUtils::open parseConfigData result=0, strategy_info=
+[global]
+strategy_version=1.1
+enable=1
+grey=100
+gpu_threshold=100
+time_preprocess_threshold=1000
+time_encoding_threshold=1000
+
+[video_sharpen1]
+enable=0
+grey=0
+business=10001,10002,10003
+business_exclude=10004,10005
+user_include=55trrty,99i,xxxxxxxxx,iij
+user_exclude=99i,xxxxxxxxxx,iij
+encoder_type=nvidia
+rate_lower=1000,8000,16000,35000
+rate_upper=5000,10000,20000,38000
+fps_lower=10,50,110
+fps_upper=40,55,130
+remote_platform=
+#edge_param=200
+#enhance_factor=9.5
+
+[video_sharpen2]
+enable=0
+grey=100
+sharpen_strength_platform=0.5,0.8
+process_fence=0
+forbidden_sharpen_twice=1
+
+[low_pass_lanczos]
+enable=0
+grey=0
+vbv_frame=4
+business=200124,400124,500124,800124,200058
+business_exclude=
+user_include=
+user_exclude=
+encoder_type=nvidia
+remote_platform=
+
+[complexity_analysis]
+enable=0
+grey=0
+thr_qp=35
+thr_qp_offset=-2
+thr_mv=20
+thr_intra_rate=0.8
+thr_judge_interval=10
+
+[complex_game]
+enable=0
+grey=0
+spatial_aq=0
+encoder_type=nvidia
+
+[complex_game1]
+enable=0
+grey=0
+temporal_aq=1
+encoder_type=nvidia
+
+[video_analysis]
+enable=0
+grey=0
+business=
+business_exclude=
+user_include=xxxxxxxxxxx
+user_exclude=
+data_analysis=15
+encoder_type=nvidia
+remote_platform=
+#compare_framerate=15
+#vmaf_compare_framerate=0.5
+#vmaf_thread=2
+
+[score_print]
+enable=0
+grey=100
+business=
+business_exclude=
+user_include=xxxxxxxxxxx
+user_exclude=
+encoder_type=nvidia,amd,intel
+remote_platform=win,ios,mac,android,tv
+print_param=2
+
+[curtain]
+enable=0
+grey=0
+business=
+business_exclude=
+user_include=xxxxxxxxxxx
+user_exclude=
+encoder_type=nvidia,amd,intel
+remote_platform=
+#mode=3
+#line_width=0
+#speed=1.0
+#start=0.5
+
+[nvidia_encoder]
+enable=1
+grey=100
+business=
+business_exclude=
+encoder_type=nvidia
+remote_platform=
+user_include=
+user_exclude=
+vbv_rate=0.05
+
+[svc_frame]
+enable=0
+grey=0
+business=
+business_exclude=
+user_include=
+user_exclude=
+encoder_type=
+remote_platform=
+grey_264=100
+grey_265=100
+
+[skip_frame]
+enable=0
+grey=0
+business=
+business_exclude=
+user_include=
+user_exclude=
+encoder_type=
+remote_platf
+[2025-8-14 4:53:20.150][15540][I][Engine]ConfigUtils::loadConfigData, not exists, filepath=D:/Ashitemaru/CodingFolder/Projects/offline-optim/bin/framerate_simulator/VideoEngine64.dll/../cgve.cfg, errno=2
+[2025-8-14 4:53:20.150][15540][I][Engine]ConfigUtils::processGreyInfo, section=qp_params, name=business_id, grey=100,-1, business_index=2
+[2025-8-14 4:53:20.150][15540][I][Engine]ConfigUtils::processGreyInfo, section=dpb_size, name=platform, grey=0,0, platform_index=-1
+[2025-8-14 4:53:20.150][15540][I][Engine]ConfigUtils::processGreyInfo, section=encode_profile, name=platform, grey=0,0, platform_index=-1
+[2025-8-14 4:53:20.150][15540][I][Engine]ConfigUtils::processGreyInfo, section=encode_slice_param, name=platform, grey=0,0, platform_index=-1
+[2025-8-14 4:53:20.150][15540][I][Engine]ConfigUtils::processGreyInfo, section=sdr_enhance_svip, name=business_id, grey=100,-1, business_index=0
+[2025-8-14 4:53:20.150][15540][I][Engine]ConfigUtils::updateGlobal, reset gpu_threshold=100
+[2025-8-14 4:53:20.150][15540][I][Engine]ConfigUtils::updateGlobal, reset time_preprocess_threshold=1000
+[2025-8-14 4:53:20.150][15540][I][Engine]ConfigUtils::updateGlobal, reset time_encoding_threshold=1000
+[2025-8-14 4:53:20.150][15540][I][Engine]ConfigUtils::sectionGreyCheck [nvidia_encoder] success, grey value=4, grey threshold=100
+[2025-8-14 4:53:20.150][15540][I][Engine]ConfigUtils::updateSection, reset vbv_rate=0.0500
+[2025-8-14 4:53:20.150][15540][I][Engine]ConfigUtils::updateSection, reset complexity_analysis=0
+[2025-8-14 4:53:20.150][15540][I][Engine]ConfigUtils::updateSection, reset video_analysis, enable=0, data_analysis=1, config=15, ori=1, param=(0,0.000,0)
+[2025-8-14 4:53:20.150][15540][I][Engine]ConfigUtils::updateSection, reset score_print=(0,2)
+[2025-8-14 4:53:20.150][15540][I][Engine]ConfigUtils::updateSection, reset curtain=(0,-1,-1,-1.00,-1.00)
+[2025-8-14 4:53:20.150][15540][I][Engine]ConfigUtils::updateSection, reset svc=0
+[2025-8-14 4:53:20.150][15540][I][Engine]ConfigUtils::updateSection, reset skip frame=0
+[2025-8-14 4:53:20.150][15540][I][Engine]ConfigUtils::sectionGreyCheck [idr_reconfig] success, grey value=32, grey threshold=100
+[2025-8-14 4:53:20.150][15540][I][Engine]ConfigUtils::updateSection, reset idr_control=0
+[2025-8-14 4:53:20.150][15540][I][Engine]ConfigUtils::sectionGreyCheck [sqoe_rate_control] success, grey value=56, grey threshold=100
+[2025-8-14 4:53:20.150][15540][I][Engine]ConfigUtils::updateSection, reset rate_control_level=1
+[2025-8-14 4:53:20.150][15540][I][Engine]ConfigUtils::updateSection, reset sqoe_vbv_rate=0.0500
+[2025-8-14 4:53:20.150][15540][I][Engine]ConfigUtils::updateSection, reset rate_fluctuate_limit_min=1.0000
+[2025-8-14 4:53:20.150][15540][I][Engine]ConfigUtils::updateSection, reset rate_fluctuate_limit_max=2.0000
+[2025-8-14 4:53:20.150][15540][I][Engine]ConfigUtils::updateSection, reset thr_intra_ratio=0.8000
+[2025-8-14 4:53:20.150][15540][I][Engine]ConfigUtils::updateSection, reset thr_framesize_gap=3.0000
+[2025-8-14 4:53:20.150][15540][I][Engine]ConfigUtils::updateSection, reset rate_increase_limit=3.0000
+[2025-8-14 4:53:20.150][15540][I][Engine]ConfigUtils::updateSection, reset bitrate_recovery_peroid=5
+[2025-8-14 4:53:20.150][15540][I][Engine]ConfigUtils::sectionGreyCheck [sqoe_black_frame_predict] success, grey value=84, grey threshold=100
+[2025-8-14 4:53:20.150][15540][I][Engine]ConfigUtils::updateSection, reset sqoe_black_frame_thr_mvx=1
+[2025-8-14 4:53:20.150][15540][I][Engine]ConfigUtils::updateSection, reset sqoe_black_frame_thr_mvy=1
+[2025-8-14 4:53:20.150][15540][I][Engine]ConfigUtils::updateSection, reset sqoe_black_frame_qp_min=11
+[2025-8-14 4:53:20.150][15540][I][Engine]ConfigUtils::updateSection, reset sqoe_black_frame_qp_max=25
+[2025-8-14 4:53:20.150][15540][I][Engine]ConfigUtils::updateSection, reset sqoe_black_frame_thr_framelength=2000
+[2025-8-14 4:53:20.150][15540][I][Engine]ConfigUtils::updateSection, reset sqoe_black_frame_thr_sqoe_fr=9.800000
+[2025-8-14 4:53:20.150][15540][I][Engine]VideoEngineCore::open start, engine_id=1, engine_type=2, codec_type=16, render_type=0, size=1920x1080, framerate=60, platform_type=0, machine_type=0, remote_platform_type=1, remote_machine_type=0
+[2025-8-14 4:53:20.157][15540][I][Engine]Factory::createCodec, check nvidia version, codec_api=11, current_version=176, support_version=208
+[2025-8-14 4:53:20.158][15540][I][Engine]VideoEngineCore::initPreProcess, encoder=1
+[2025-8-14 4:53:20.158][15540][I][Process]VideoProcess::openFilters, no filters
+[2025-8-14 4:53:20.158][15540][I][Engine]VideoEngineCore::initPreProcess, set video_enhance=0
+[2025-8-14 4:53:20.158][15540][I][Engine]VideoEngineCore::initPreProcess, encoder=1, filter_count=0
+[2025-8-14 4:53:20.158][15540][I][Engine]VideoEngineCore::initPostProcess, encoder=1
+[2025-8-14 4:53:20.158][15540][I][Process]FilterMgr::CreateFilters success, createSqoeLightFilter, background=0
+[2025-8-14 4:53:20.158][15540][I][Process]VideoProcess::openFilters, CreateFilters, filter size=1, background filter size=0
+[2025-8-14 4:53:20.158][15540][I][Engine]VideoEngineCore::initPostProcess, encoder=1, filter_count=1
+[2025-8-14 4:53:20.158][15540][I][Engine]VideoEngineCore::initCodec, encoder=1, width=1920, height=1080, codec_type=16, render_type=0, surface=0x0000000000000000, nativeWindow=0x0000000000000000, hp_mode=0, strategy_info=
+[global]
+strategy_version=1.1
+enable=1
+grey=100
+gpu_threshold=100
+time_preprocess_threshold=1000
+time_encoding_threshold=1000
+
+[video_sharpen1]
+enable=0
+grey=0
+business=10001,10002,10003
+business_exclude=10004,10005
+user_include=55trrty,99i,xxxxxxxxx,iij
+user_exclude=99i,xxxxxxxxxx,iij
+encoder_type=nvidia
+rate_lower=1000,8000,16000,35000
+rate_upper=5000,10000,20000,38000
+fps_lower=10,50,110
+fps_upper=40,55,130
+remote_platform=
+#edge_param=200
+#enhance_factor=9.5
+
+[video_sharpen2]
+enable=0
+grey=100
+sharpen_strength_platform=0.5,0.8
+process_fence=0
+forbidden_sharpen_twice=1
+
+[low_pass_lanczos]
+enable=0
+grey=0
+vbv_frame=4
+business=200124,400124,500124,800124,200058
+business_exclude=
+user_include=
+user_exclude=
+encoder_type=nvidia
+remote_platform=
+
+[complexity_analysis]
+enable=0
+grey=0
+thr_qp=35
+thr_qp_offset=-2
+thr_mv=20
+thr_intra_rate=0.8
+thr_judge_interval=10
+
+[complex_game]
+enable=0
+grey=0
+spatial_aq=0
+encoder_type=nvidia
+
+[complex_game1]
+enable=0
+grey=0
+temporal_aq=1
+encoder_type=nvidia
+
+[video_analysis]
+enable=0
+grey=0
+business=
+business_exclude=
+user_include=xxxxxxxxxxx
+user_exclude=
+data_analysis=15
+encoder_type=nvidia
+remote_platform=
+#compare_framerate=15
+#vmaf_compare_framerate=0.5
+#vmaf_thread=2
+
+[score_print]
+enable=0
+grey=100
+business=
+business_exclude=
+user_include=xxxxxxxxxxx
+user_exclude=
+encoder_type=nvidia,amd,intel
+remote_platform=win,ios,mac,android,tv
+print_param=2
+
+[curtain]
+enable=0
+grey=0
+business=
+business_exclude=
+user_include=xxxxxxxxxxx
+user_exclude=
+encoder_type=nvidia,amd,intel
+remote_platform=
+#mode=3
+#line_width=0
+#speed=1.0
+#start=0.5
+
+[nvidia_encoder]
+enable=1
+grey=100
+business=
+business_exclude=
+encoder_type=nvidia
+remote_platform=
+user_include=
+user_exclude=
+vbv_rate=0.05
+
+[svc_frame]
+enable=0
+grey=0
+business=
+business_exclude=
+user_include=
+user_exclude=
+encoder_type=
+remote_platform=
+grey_264=100
+gre
+[2025-8-14 4:53:20.158][15540][I][Nvidia]NvEnc::Init start, codec_type=16, size=1920x1080, framerate=60, bitrate=36000, max_bitrate=36000, color_space=3, rc_mode=4, qp_i=[51, 0], qp_p=[51, 0], max_size=1920x1080, ref_frames=3, device_type=4, device_ptr=0x000001859C7349A0, verison=Local_v3.3.0.1_Apr 27 2023_19:53:14_x64, API_VERSION=11.0
+[2025-8-14 4:53:20.160][15540][I][Nvidia]NvEnc::setCodecParams codec_type=16, size=1920x1080@60fps, bitrate=36000, max_bitrate=36000, vbv_buffer_size=1800000, rc_mode=2, qp_i=[51, 0], qp_p=[51, 0], ref_frames=3,temporal_aq=0, dpb_size=-1, store_frames=-1
+[2025-8-14 4:53:20.160][15540][I][Nvidia]NvEnc::setSpecificCapability dpb_size=3, ref_frame_num=3, temporal_aq=0
+[2025-8-14 4:53:20.184][15540][I][Nvidia]NvEnc::Init codec success, codec_guid={6BC82762-4E63-4CA4-AA85-1E50F321F6BF}, preset_guid={36850110-3A07-441F-94D5-3670631F91F6}
+[2025-8-14 4:53:20.184][15540][I][Engine]VideoEngineCore::initCodec, codec=0x000001859CAADC20
+[2025-8-14 4:53:20.184][15540][I][Engine]VideoEngineCore::open success, engine_id=1, codec=0x000001859CAADC20, render=0x0000000000000000, engine_type=2, codec_type=16, render_type=0
+[2025-8-14 4:53:20.184][15540][I][Common]SimpleThread::start, thread create, set thread_name=monitor
+[2025-8-14 4:53:20.184][15540][I][Common]SimpleThread::start thread success
+[2025-8-14 4:53:20.184][31068][I][Common]SimpleThread::run start, thread name=monitor92, thread_id=31068
+[2025-8-14 4:53:20.184][31068][I][Engine]VideoEngine::monitorThreadEncode, device_info=10.0.-268409356-unknown-NVIDIA GeForce RTX 3050 Laptop GPU  -11th Gen Intel(R) Core(TM) i5-11400H @ 2.70GHz-Aero 1-unknown, extra_device_info=, exiting=0
+[2025-8-14 4:53:20.188][15540][I][Engine]VideoEngineCore::setParam, [kSetResources]=4
+[2025-8-14 4:53:20.188][15540][I][Engine]ConfigUtils::open disable_strategy=0, strategy_info=
+[2025-8-14 4:53:20.188][15540][I][Engine]ConfigUtils::loadConfigData, not exists, filepath=D:/Ashitemaru/CodingFolder/Projects/offline-optim/bin/framerate_simulator/VideoEngine64.dll/../cgve.cfg, errno=2
+[2025-8-14 4:53:20.189][15540][I][Common]AdlUtils::Init, ADL library not found
+[2025-8-14 4:53:20.189][15540][I][Engine]VideoEngineCore::open start, engine_id=2, engine_type=2, codec_type=16, render_type=0, size=1920x1080, framerate=60, platform_type=0, machine_type=0, remote_platform_type=0, remote_machine_type=0
+[2025-8-14 4:53:20.189][15540][I][Engine]VideoEngineCore::initCodec, encoder=0, width=1920, height=1080, codec_type=16, render_type=0, surface=0x0000000000000000, nativeWindow=0x0000000000000000, hp_mode=0, strategy_info=
+[2025-8-14 4:53:20.189][15540][I][Nvidia]NvDec::Init start, codec_type=16, size=1920x1080, framerate=60, verison=Local_v3.3.0.1_Apr 27 2023_19:53:14_x64, API_VERSION=9.0
+[2025-8-14 4:53:21.022][15540][I][Nvidia]NvidiaHelper::getCudaDeviceByLuid, find cuDevice, cu_index=0, cu_device=0, adapterLuid=[84892,0]
+[2025-8-14 4:53:21.596][15540][I][Nvidia]NvDec::Init success, size=1920x1080, cu_index=0, cu_device=0
+[2025-8-14 4:53:21.596][15540][I][Engine]VideoEngineCore::initCodec, codec=0x000001859C6F2C50
+[2025-8-14 4:53:21.596][15540][I][Engine]VideoEngineCore::open success, engine_id=2, codec=0x000001859C6F2C50, render=0x0000000000000000, engine_type=2, codec_type=16, render_type=0
+[2025-8-14 4:53:21.596][15540][I][Common]SimpleThread::start, thread create, set thread_name=monitor
+[2025-8-14 4:53:21.596][15540][I][Common]SimpleThread::start thread success
+[2025-8-14 4:53:21.597][10044][I][Common]SimpleThread::run start, thread name=monitor60, thread_id=10044
+[2025-8-14 4:53:21.597][10044][I][Engine]VideoEngine::monitorThreadDecode, device_info=10.0.-268409356-unknown-NVIDIA GeForce RTX 3050 Laptop GPU  -11th Gen Intel(R) Core(TM) i5-11400H @ 2.70GHz-Aero 1-unknown, extra_device_info=, exiting=0
+[2025-8-14 4:53:26.732][15540][I][Nvidia]NvEnc::DoEncode request IDR version2, frame=444, count=8, period=5008
+[2025-8-14 4:53:31.868][15540][I][Nvidia]NvEnc::DoEncode request IDR version2, frame=799, count=6, period=5007
+[2025-8-14 4:53:33.334][15540][I][Engine]VideoEngineCore::close, engine_id=1, codec=0x000001859CAADC20, render=0x0000000000000000, engine_type=2 codec_type=16, render_type=0, width=1920, height=1080
+[2025-8-14 4:53:33.334][15540][I][Nvidia]NvEnc::UnInit start
+[2025-8-14 4:53:33.337][15540][I][Nvidia]NvEnc::UnInit success
+[2025-8-14 4:53:33.338][31068][I][Common]SimpleThread::run finish, func, thread name=monitor92, thread_id=31068, result=0
+[2025-8-14 4:53:33.354][15540][I][Common]SimpleThread::wait success, wait time=1 ms, time capacity=20000 ms
+[2025-8-14 4:53:33.354][15540][I][Common]SimpleThread::terminate thread result=0
+[2025-8-14 4:53:33.354][15540][I][Engine]VideoEngine::Close, engine_type=2, codec_type=16, color_space=3, size=1920x1080, input_framerate=60, bitrate=36000, max_bitrate=36000, encoder_type=1, profile=100, rc_mode=4, rc_vbv_rate=0.05, target_quality=0, video_enhance=0, data_analysis=1, scene_motion=0, scene_complexity=0, status_index=4, last_time=13(s), in_frames=900, out_frames=900, idr_frames=15, error_frames=0, avg_encode_time=4.6, avg_preprocess_time=0.0, avg_postprocess_time=0.0, avg_frame_time=11.0, avg_store_frame=0.0, avg_encode_framerate=68.4, avg_out_bitrate=36854.5
+[2025-8-14 4:53:33.354][15540][I][Engine]VideoEngine::Close, stats, encode_time_dist=0,0,0,39,424,265,155,17,0,0,0,0,0,0,0,, pre_time_dis=900,0,0,0,0,0,0,0,0,0,0,0,0,0,0,, post_time_dis=900,0,0,0,0,0,0,0,0,0,0,0,0,0,0,, packet_out_dist=0,4,32,22,10,32,122,478,124,76,0,0,0,0,0,, qp_dis=0,0,18,39,113,149,187,189,136,56,12,1,0,0,0,, satd_dist=0,81,608,153,44,11,2,0,1,0,0,0,0,0,0,, frame_time_dist=0,0,0,0,0,455,212,232,0,1,0,0,0,0,0,, input_interval_dist=0,0,10,857,31,0,0,1,0,0,0,0,0,0,0,, output_interval_dist=0,0,6,859,34,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:33.354][15540][I][Engine]VideoEngine::Close, result=0, extra_info=encode1:0;encode2:0;pre1:0;pre2:0;post1:0;post2:0;engines:2;analysis:0,0,0,0,0,0,0,0,0;emsg:;svip_enhance:0,0,0,0,0,0;sdr:0,0,0,0
+[2025-8-14 4:53:33.354][15540][I][Engine]VideoEngineCore::close, engine_id=2, codec=0x000001859C6F2C50, render=0x0000000000000000, engine_type=2 codec_type=16, render_type=0, width=1920, height=1080
+[2025-8-14 4:53:33.354][15540][I][Nvidia]NvDec::UnInit, size=1920x1080, decoder=0x00000185B317AB00, cu_context=0x00000185A5837920
+[2025-8-14 4:53:33.370][10044][I][Common]SimpleThread::run finish, func, thread name=monitor60, thread_id=10044, result=0
+[2025-8-14 4:53:33.387][15540][I][Common]SimpleThread::wait success, wait time=0 ms, time capacity=20000 ms
+[2025-8-14 4:53:33.387][15540][I][Common]SimpleThread::terminate thread result=0
+[2025-8-14 4:53:33.387][15540][I][Engine]VideoEngine::Close, engine_type=2, codec_type=16, render_type=0, size=1920x1080, config_level=0, input_framerate=60, status_index=3, last_time=11(s), in_frames=900, out_frames=900, idr_frames=15, error_frames=0, avg_frame_time=3.3, avg_decode_time=0.0, avg_render_time=0.0, avg_store_frame=0.0, avg_decode_framerate=76.3, avg_render_framerate=62.5, avg_in_bitrate=41.1, avg_out_bitrate=41.1
+[2025-8-14 4:53:33.387][15540][I][Engine]VideoEngine::Close, stats, frame_time_dist=0,98,735,66,0,0,0,0,0,1,0,0,0,0,0,, decode_time_dist=900,0,0,0,0,0,0,0,0,0,0,0,, render_time_dist=900,0,0,0,0,0,0,0,0,0,0,0,, store_frame_dist=900,0,0,0,0,0,0,0,0,0,0,0,, input_interval_dist=0,0,10,825,63,0,0,0,1,0,0,0,0,0,0,, output_interval_dist=0,0,8,830,61,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:33.387][15540][I][Engine]VideoEngine::Close, result=0, extra_info=decode1:0;decode2:0;render1:0;render2:0;;engines:2;history:0;cap:0;native:0;hp:0;rev1:0;rev2:0;rev3:0;rev4:0;
+[2025-8-14 4:53:33.387][15540][I][Engine]VideoEngine::Close, engine_type=2, codec_type=16, color_space=3, size=1920x1080, input_framerate=60, bitrate=36000, max_bitrate=36000, encoder_type=1, profile=100, rc_mode=4, rc_vbv_rate=0.05, target_quality=0, video_enhance=0, data_analysis=1, scene_motion=0, scene_complexity=0, status_index=4, last_time=13(s), in_frames=900, out_frames=900, idr_frames=15, error_frames=0, avg_encode_time=4.6, avg_preprocess_time=0.0, avg_postprocess_time=0.0, avg_frame_time=11.0, avg_store_frame=0.0, avg_encode_framerate=68.2, avg_out_bitrate=36714.9
+[2025-8-14 4:53:33.387][15540][I][Engine]VideoEngine::Close, stats, encode_time_dist=0,0,0,39,424,265,155,17,0,0,0,0,0,0,0,, pre_time_dis=900,0,0,0,0,0,0,0,0,0,0,0,0,0,0,, post_time_dis=900,0,0,0,0,0,0,0,0,0,0,0,0,0,0,, packet_out_dist=0,4,32,22,10,32,122,478,124,76,0,0,0,0,0,, qp_dis=0,0,18,39,113,149,187,189,136,56,12,1,0,0,0,, satd_dist=0,81,608,153,44,11,2,0,1,0,0,0,0,0,0,, frame_time_dist=0,0,0,0,0,455,212,232,0,1,0,0,0,0,0,, input_interval_dist=0,0,10,857,31,0,0,1,0,0,0,0,0,0,0,, output_interval_dist=0,0,6,859,34,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:33.387][15540][I][Engine]VideoEngine::Close, result=0, extra_info=encode1:0;encode2:0;pre1:0;pre2:0;post1:0;post2:0;engines:2;analysis:0,0,0,0,0,0,0,0,0;emsg:;svip_enhance:0,0,0,0,0,0;sdr:0,0,0,0
+[2025-8-14 4:53:33.387][15540][I][Engine]VideoEngine::CVideoEngine release, device_info=10.0.-268409356-unknown-NVIDIA GeForce RTX 3050 Laptop GPU  -11th Gen Intel(R) Core(TM) i5-11400H @ 2.70GHz-Aero 1-unknown
+[2025-8-14 4:53:33.387][15540][I][Engine]VideoEngineCore::~VideoEngineCore, engine_id=1, engines=2
+[2025-8-14 4:53:33.388][15540][I][Engine]VideoEngine::Close, engine_type=2, codec_type=16, render_type=0, size=1920x1080, config_level=0, input_framerate=60, status_index=3, last_time=11(s), in_frames=900, out_frames=900, idr_frames=15, error_frames=0, avg_frame_time=3.3, avg_decode_time=0.0, avg_render_time=0.0, avg_store_frame=0.0, avg_decode_framerate=76.3, avg_render_framerate=62.5, avg_in_bitrate=41.1, avg_out_bitrate=41.1
+[2025-8-14 4:53:33.388][15540][I][Engine]VideoEngine::Close, stats, frame_time_dist=0,98,735,66,0,0,0,0,0,1,0,0,0,0,0,, decode_time_dist=900,0,0,0,0,0,0,0,0,0,0,0,, render_time_dist=900,0,0,0,0,0,0,0,0,0,0,0,, store_frame_dist=900,0,0,0,0,0,0,0,0,0,0,0,, input_interval_dist=0,0,10,825,63,0,0,0,1,0,0,0,0,0,0,, output_interval_dist=0,0,8,830,61,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 4:53:33.388][15540][I][Engine]VideoEngine::Close, result=0, extra_info=decode1:0;decode2:0;render1:0;render2:0;;engines:1;history:0;cap:0;native:0;hp:0;rev1:0;rev2:0;rev3:0;rev4:0;
+[2025-8-14 4:53:33.388][15540][I][Engine]VideoEngine::CVideoEngine release, device_info=10.0.-268409356-unknown-NVIDIA GeForce RTX 3050 Laptop GPU  -11th Gen Intel(R) Core(TM) i5-11400H @ 2.70GHz-Aero 1-unknown
+[2025-8-14 4:53:33.388][15540][I][Engine]VideoEngineCore::~VideoEngineCore, engine_id=2, engines=1
+
+[------------------------ LOG FINISH -------------------------]
+
+[------------------------ LOG START --------------------------]
+[2025-8-14 5:4:3.409][30824][I][Engine]ConfigUtils::filepath is D:/Ashitemaru/CodingFolder/Projects/offline-optim/bin/framerate_simulator/VideoEngine64.dll/..
+[2025-8-14 5:4:3.409][30824][I][Engine]VideoEngineCore::VideoEngineCore, engine_id=1, engines=1
+[2025-8-14 5:4:3.409][30824][I][Common]MultiThread::MultiThread, num=1
+[2025-8-14 5:4:3.409][30824][I][Common]MultiThread::MultiThread, num=3
+[2025-8-14 5:4:3.410][30824][I][Engine]VideoEngine::CVideoEngine create, version=Local_v3.3.0.1_Apr 27 2023_19:53:14_x64, device_info=10.0.-268409356-unknown-NVIDIA GeForce RTX 3050 Laptop GPU  -11th Gen Intel(R) Core(TM) i5-11400H @ 2.70GHz-Aero 1-unknown
+[2025-8-14 5:4:3.410][30824][I][Engine]VideoEngineCore::VideoEngineCore, engine_id=2, engines=2
+[2025-8-14 5:4:3.410][30824][I][Common]MultiThread::MultiThread, num=1
+[2025-8-14 5:4:3.410][30824][I][Common]MultiThread::MultiThread, num=3
+[2025-8-14 5:4:3.410][30824][I][Engine]VideoEngine::CVideoEngine create, version=Local_v3.3.0.1_Apr 27 2023_19:53:14_x64, device_info=10.0.-268409356-unknown-NVIDIA GeForce RTX 3050 Laptop GPU  -11th Gen Intel(R) Core(TM) i5-11400H @ 2.70GHz-Aero 1-unknown
+[2025-8-14 5:4:3.410][30824][I][Common]DeviceUtils::findEncoderTypeByDevice11 Nvidia, VendorId=4318, Description=NVIDIA GeForce RTX 3050 Laptop GPU
+[2025-8-14 5:4:3.410][30824][I][Engine]ConfigUtils::open parseConfigData result=0, strategy_info=
+[global]
+strategy_version=1.1
+enable=1
+grey=100
+gpu_threshold=100
+time_preprocess_threshold=1000
+time_encoding_threshold=1000
+
+[video_sharpen1]
+enable=0
+grey=0
+business=10001,10002,10003
+business_exclude=10004,10005
+user_include=55trrty,99i,xxxxxxxxx,iij
+user_exclude=99i,xxxxxxxxxx,iij
+encoder_type=nvidia
+rate_lower=1000,8000,16000,35000
+rate_upper=5000,10000,20000,38000
+fps_lower=10,50,110
+fps_upper=40,55,130
+remote_platform=
+#edge_param=200
+#enhance_factor=9.5
+
+[video_sharpen2]
+enable=0
+grey=100
+sharpen_strength_platform=0.5,0.8
+process_fence=0
+forbidden_sharpen_twice=1
+
+[low_pass_lanczos]
+enable=0
+grey=0
+vbv_frame=4
+business=200124,400124,500124,800124,200058
+business_exclude=
+user_include=
+user_exclude=
+encoder_type=nvidia
+remote_platform=
+
+[complexity_analysis]
+enable=0
+grey=0
+thr_qp=35
+thr_qp_offset=-2
+thr_mv=20
+thr_intra_rate=0.8
+thr_judge_interval=10
+
+[complex_game]
+enable=0
+grey=0
+spatial_aq=0
+encoder_type=nvidia
+
+[complex_game1]
+enable=0
+grey=0
+temporal_aq=1
+encoder_type=nvidia
+
+[video_analysis]
+enable=0
+grey=0
+business=
+business_exclude=
+user_include=xxxxxxxxxxx
+user_exclude=
+data_analysis=15
+encoder_type=nvidia
+remote_platform=
+#compare_framerate=15
+#vmaf_compare_framerate=0.5
+#vmaf_thread=2
+
+[score_print]
+enable=0
+grey=100
+business=
+business_exclude=
+user_include=xxxxxxxxxxx
+user_exclude=
+encoder_type=nvidia,amd,intel
+remote_platform=win,ios,mac,android,tv
+print_param=2
+
+[curtain]
+enable=0
+grey=0
+business=
+business_exclude=
+user_include=xxxxxxxxxxx
+user_exclude=
+encoder_type=nvidia,amd,intel
+remote_platform=
+#mode=3
+#line_width=0
+#speed=1.0
+#start=0.5
+
+[nvidia_encoder]
+enable=1
+grey=100
+business=
+business_exclude=
+encoder_type=nvidia
+remote_platform=
+user_include=
+user_exclude=
+vbv_rate=0.05
+
+[svc_frame]
+enable=0
+grey=0
+business=
+business_exclude=
+user_include=
+user_exclude=
+encoder_type=
+remote_platform=
+grey_264=100
+grey_265=100
+
+[skip_frame]
+enable=0
+grey=0
+business=
+business_exclude=
+user_include=
+user_exclude=
+encoder_type=
+remote_platf
+[2025-8-14 5:4:3.410][30824][I][Engine]ConfigUtils::loadConfigData, not exists, filepath=D:/Ashitemaru/CodingFolder/Projects/offline-optim/bin/framerate_simulator/VideoEngine64.dll/../cgve.cfg, errno=2
+[2025-8-14 5:4:3.410][30824][I][Engine]ConfigUtils::processGreyInfo, section=qp_params, name=business_id, grey=100,-1, business_index=2
+[2025-8-14 5:4:3.410][30824][I][Engine]ConfigUtils::processGreyInfo, section=dpb_size, name=platform, grey=0,0, platform_index=-1
+[2025-8-14 5:4:3.410][30824][I][Engine]ConfigUtils::processGreyInfo, section=encode_profile, name=platform, grey=0,0, platform_index=-1
+[2025-8-14 5:4:3.410][30824][I][Engine]ConfigUtils::processGreyInfo, section=encode_slice_param, name=platform, grey=0,0, platform_index=-1
+[2025-8-14 5:4:3.410][30824][I][Engine]ConfigUtils::processGreyInfo, section=sdr_enhance_svip, name=business_id, grey=100,-1, business_index=0
+[2025-8-14 5:4:3.410][30824][I][Engine]ConfigUtils::updateGlobal, reset gpu_threshold=100
+[2025-8-14 5:4:3.410][30824][I][Engine]ConfigUtils::updateGlobal, reset time_preprocess_threshold=1000
+[2025-8-14 5:4:3.410][30824][I][Engine]ConfigUtils::updateGlobal, reset time_encoding_threshold=1000
+[2025-8-14 5:4:3.410][30824][I][Engine]ConfigUtils::sectionGreyCheck [nvidia_encoder] success, grey value=75, grey threshold=100
+[2025-8-14 5:4:3.410][30824][I][Engine]ConfigUtils::updateSection, reset vbv_rate=0.0500
+[2025-8-14 5:4:3.410][30824][I][Engine]ConfigUtils::updateSection, reset complexity_analysis=0
+[2025-8-14 5:4:3.410][30824][I][Engine]ConfigUtils::updateSection, reset video_analysis, enable=0, data_analysis=1, config=15, ori=1, param=(0,0.000,0)
+[2025-8-14 5:4:3.410][30824][I][Engine]ConfigUtils::updateSection, reset score_print=(0,2)
+[2025-8-14 5:4:3.410][30824][I][Engine]ConfigUtils::updateSection, reset curtain=(0,-1,-1,-1.00,-1.00)
+[2025-8-14 5:4:3.410][30824][I][Engine]ConfigUtils::updateSection, reset svc=0
+[2025-8-14 5:4:3.410][30824][I][Engine]ConfigUtils::updateSection, reset skip frame=0
+[2025-8-14 5:4:3.410][30824][I][Engine]ConfigUtils::sectionGreyCheck [idr_reconfig] success, grey value=40, grey threshold=100
+[2025-8-14 5:4:3.410][30824][I][Engine]ConfigUtils::updateSection, reset idr_control=0
+[2025-8-14 5:4:3.410][30824][I][Engine]ConfigUtils::sectionGreyCheck [sqoe_rate_control] success, grey value=0, grey threshold=100
+[2025-8-14 5:4:3.410][30824][I][Engine]ConfigUtils::updateSection, reset rate_control_level=1
+[2025-8-14 5:4:3.410][30824][I][Engine]ConfigUtils::updateSection, reset sqoe_vbv_rate=0.0500
+[2025-8-14 5:4:3.410][30824][I][Engine]ConfigUtils::updateSection, reset rate_fluctuate_limit_min=1.0000
+[2025-8-14 5:4:3.410][30824][I][Engine]ConfigUtils::updateSection, reset rate_fluctuate_limit_max=2.0000
+[2025-8-14 5:4:3.410][30824][I][Engine]ConfigUtils::updateSection, reset thr_intra_ratio=0.8000
+[2025-8-14 5:4:3.410][30824][I][Engine]ConfigUtils::updateSection, reset thr_framesize_gap=3.0000
+[2025-8-14 5:4:3.410][30824][I][Engine]ConfigUtils::updateSection, reset rate_increase_limit=3.0000
+[2025-8-14 5:4:3.410][30824][I][Engine]ConfigUtils::updateSection, reset bitrate_recovery_peroid=5
+[2025-8-14 5:4:3.410][30824][I][Engine]ConfigUtils::sectionGreyCheck [sqoe_black_frame_predict] success, grey value=12, grey threshold=100
+[2025-8-14 5:4:3.410][30824][I][Engine]ConfigUtils::updateSection, reset sqoe_black_frame_thr_mvx=1
+[2025-8-14 5:4:3.410][30824][I][Engine]ConfigUtils::updateSection, reset sqoe_black_frame_thr_mvy=1
+[2025-8-14 5:4:3.410][30824][I][Engine]ConfigUtils::updateSection, reset sqoe_black_frame_qp_min=11
+[2025-8-14 5:4:3.410][30824][I][Engine]ConfigUtils::updateSection, reset sqoe_black_frame_qp_max=25
+[2025-8-14 5:4:3.410][30824][I][Engine]ConfigUtils::updateSection, reset sqoe_black_frame_thr_framelength=2000
+[2025-8-14 5:4:3.410][30824][I][Engine]ConfigUtils::updateSection, reset sqoe_black_frame_thr_sqoe_fr=9.800000
+[2025-8-14 5:4:3.410][30824][I][Engine]VideoEngineCore::open start, engine_id=1, engine_type=2, codec_type=16, render_type=0, size=1920x1080, framerate=60, platform_type=0, machine_type=0, remote_platform_type=1, remote_machine_type=0
+[2025-8-14 5:4:3.419][30824][I][Engine]Factory::createCodec, check nvidia version, codec_api=11, current_version=176, support_version=208
+[2025-8-14 5:4:3.419][30824][I][Engine]VideoEngineCore::initPreProcess, encoder=1
+[2025-8-14 5:4:3.419][30824][I][Process]VideoProcess::openFilters, no filters
+[2025-8-14 5:4:3.419][30824][I][Engine]VideoEngineCore::initPreProcess, set video_enhance=0
+[2025-8-14 5:4:3.419][30824][I][Engine]VideoEngineCore::initPreProcess, encoder=1, filter_count=0
+[2025-8-14 5:4:3.419][30824][I][Engine]VideoEngineCore::initPostProcess, encoder=1
+[2025-8-14 5:4:3.419][30824][I][Process]FilterMgr::CreateFilters success, createSqoeLightFilter, background=0
+[2025-8-14 5:4:3.419][30824][I][Process]VideoProcess::openFilters, CreateFilters, filter size=1, background filter size=0
+[2025-8-14 5:4:3.419][30824][I][Engine]VideoEngineCore::initPostProcess, encoder=1, filter_count=1
+[2025-8-14 5:4:3.419][30824][I][Engine]VideoEngineCore::initCodec, encoder=1, width=1920, height=1080, codec_type=16, render_type=0, surface=0x0000000000000000, nativeWindow=0x0000000000000000, hp_mode=0, strategy_info=
+[global]
+strategy_version=1.1
+enable=1
+grey=100
+gpu_threshold=100
+time_preprocess_threshold=1000
+time_encoding_threshold=1000
+
+[video_sharpen1]
+enable=0
+grey=0
+business=10001,10002,10003
+business_exclude=10004,10005
+user_include=55trrty,99i,xxxxxxxxx,iij
+user_exclude=99i,xxxxxxxxxx,iij
+encoder_type=nvidia
+rate_lower=1000,8000,16000,35000
+rate_upper=5000,10000,20000,38000
+fps_lower=10,50,110
+fps_upper=40,55,130
+remote_platform=
+#edge_param=200
+#enhance_factor=9.5
+
+[video_sharpen2]
+enable=0
+grey=100
+sharpen_strength_platform=0.5,0.8
+process_fence=0
+forbidden_sharpen_twice=1
+
+[low_pass_lanczos]
+enable=0
+grey=0
+vbv_frame=4
+business=200124,400124,500124,800124,200058
+business_exclude=
+user_include=
+user_exclude=
+encoder_type=nvidia
+remote_platform=
+
+[complexity_analysis]
+enable=0
+grey=0
+thr_qp=35
+thr_qp_offset=-2
+thr_mv=20
+thr_intra_rate=0.8
+thr_judge_interval=10
+
+[complex_game]
+enable=0
+grey=0
+spatial_aq=0
+encoder_type=nvidia
+
+[complex_game1]
+enable=0
+grey=0
+temporal_aq=1
+encoder_type=nvidia
+
+[video_analysis]
+enable=0
+grey=0
+business=
+business_exclude=
+user_include=xxxxxxxxxxx
+user_exclude=
+data_analysis=15
+encoder_type=nvidia
+remote_platform=
+#compare_framerate=15
+#vmaf_compare_framerate=0.5
+#vmaf_thread=2
+
+[score_print]
+enable=0
+grey=100
+business=
+business_exclude=
+user_include=xxxxxxxxxxx
+user_exclude=
+encoder_type=nvidia,amd,intel
+remote_platform=win,ios,mac,android,tv
+print_param=2
+
+[curtain]
+enable=0
+grey=0
+business=
+business_exclude=
+user_include=xxxxxxxxxxx
+user_exclude=
+encoder_type=nvidia,amd,intel
+remote_platform=
+#mode=3
+#line_width=0
+#speed=1.0
+#start=0.5
+
+[nvidia_encoder]
+enable=1
+grey=100
+business=
+business_exclude=
+encoder_type=nvidia
+remote_platform=
+user_include=
+user_exclude=
+vbv_rate=0.05
+
+[svc_frame]
+enable=0
+grey=0
+business=
+business_exclude=
+user_include=
+user_exclude=
+encoder_type=
+remote_platform=
+grey_264=100
+gre
+[2025-8-14 5:4:3.419][30824][I][Nvidia]NvEnc::Init start, codec_type=16, size=1920x1080, framerate=60, bitrate=38000, max_bitrate=38000, color_space=3, rc_mode=4, qp_i=[51, 0], qp_p=[51, 0], max_size=1920x1080, ref_frames=3, device_type=4, device_ptr=0x000001F8FB2B6040, verison=Local_v3.3.0.1_Apr 27 2023_19:53:14_x64, API_VERSION=11.0
+[2025-8-14 5:4:3.421][30824][I][Nvidia]NvEnc::setCodecParams codec_type=16, size=1920x1080@60fps, bitrate=38000, max_bitrate=38000, vbv_buffer_size=1900000, rc_mode=2, qp_i=[51, 0], qp_p=[51, 0], ref_frames=3,temporal_aq=0, dpb_size=-1, store_frames=-1
+[2025-8-14 5:4:3.421][30824][I][Nvidia]NvEnc::setSpecificCapability dpb_size=3, ref_frame_num=3, temporal_aq=0
+[2025-8-14 5:4:3.448][30824][I][Nvidia]NvEnc::Init codec success, codec_guid={6BC82762-4E63-4CA4-AA85-1E50F321F6BF}, preset_guid={36850110-3A07-441F-94D5-3670631F91F6}
+[2025-8-14 5:4:3.448][30824][I][Engine]VideoEngineCore::initCodec, codec=0x000001F8FF71BB40
+[2025-8-14 5:4:3.448][30824][I][Engine]VideoEngineCore::open success, engine_id=1, codec=0x000001F8FF71BB40, render=0x0000000000000000, engine_type=2, codec_type=16, render_type=0
+[2025-8-14 5:4:3.448][30824][I][Common]SimpleThread::start, thread create, set thread_name=monitor
+[2025-8-14 5:4:3.448][30824][I][Common]SimpleThread::start thread success
+[2025-8-14 5:4:3.448][1436][I][Common]SimpleThread::run start, thread name=monitor156, thread_id=1436
+[2025-8-14 5:4:3.448][1436][I][Engine]VideoEngine::monitorThreadEncode, device_info=10.0.-268409356-unknown-NVIDIA GeForce RTX 3050 Laptop GPU  -11th Gen Intel(R) Core(TM) i5-11400H @ 2.70GHz-Aero 1-unknown, extra_device_info=, exiting=0
+[2025-8-14 5:4:3.455][30824][I][Engine]VideoEngineCore::setParam, [kSetResources]=4
+[2025-8-14 5:4:3.455][30824][I][Engine]ConfigUtils::open disable_strategy=0, strategy_info=
+[2025-8-14 5:4:3.455][30824][I][Engine]ConfigUtils::loadConfigData, not exists, filepath=D:/Ashitemaru/CodingFolder/Projects/offline-optim/bin/framerate_simulator/VideoEngine64.dll/../cgve.cfg, errno=2
+[2025-8-14 5:4:3.456][30824][I][Common]AdlUtils::Init, ADL library not found
+[2025-8-14 5:4:3.456][30824][I][Engine]VideoEngineCore::open start, engine_id=2, engine_type=2, codec_type=16, render_type=0, size=1920x1080, framerate=60, platform_type=0, machine_type=0, remote_platform_type=0, remote_machine_type=0
+[2025-8-14 5:4:3.456][30824][I][Engine]VideoEngineCore::initCodec, encoder=0, width=1920, height=1080, codec_type=16, render_type=0, surface=0x0000000000000000, nativeWindow=0x0000000000000000, hp_mode=0, strategy_info=
+[2025-8-14 5:4:3.456][30824][I][Nvidia]NvDec::Init start, codec_type=16, size=1920x1080, framerate=60, verison=Local_v3.3.0.1_Apr 27 2023_19:53:14_x64, API_VERSION=9.0
+[2025-8-14 5:4:3.703][30824][I][Nvidia]NvidiaHelper::getCudaDeviceByLuid, find cuDevice, cu_index=0, cu_device=0, adapterLuid=[84892,0]
+[2025-8-14 5:4:3.924][30824][I][Nvidia]NvDec::Init success, size=1920x1080, cu_index=0, cu_device=0
+[2025-8-14 5:4:3.924][30824][I][Engine]VideoEngineCore::initCodec, codec=0x000001F8FB27AF20
+[2025-8-14 5:4:3.924][30824][I][Engine]VideoEngineCore::open success, engine_id=2, codec=0x000001F8FB27AF20, render=0x0000000000000000, engine_type=2, codec_type=16, render_type=0
+[2025-8-14 5:4:3.924][30824][I][Common]SimpleThread::start, thread create, set thread_name=monitor
+[2025-8-14 5:4:3.924][30824][I][Common]SimpleThread::start thread success
+[2025-8-14 5:4:3.924][23924][I][Common]SimpleThread::run start, thread name=monitor116, thread_id=23924
+[2025-8-14 5:4:3.924][23924][I][Engine]VideoEngine::monitorThreadDecode, device_info=10.0.-268409356-unknown-NVIDIA GeForce RTX 3050 Laptop GPU  -11th Gen Intel(R) Core(TM) i5-11400H @ 2.70GHz-Aero 1-unknown, extra_device_info=, exiting=0
+[2025-8-14 5:4:9.059][30824][I][Nvidia]NvEnc::DoEncode request IDR version2, frame=447, count=8, period=5008
+[2025-8-14 5:4:14.191][30824][I][Nvidia]NvEnc::DoEncode request IDR version2, frame=823, count=6, period=5004
+[2025-8-14 5:4:15.306][30824][I][Engine]VideoEngineCore::close, engine_id=1, codec=0x000001F8FF71BB40, render=0x0000000000000000, engine_type=2 codec_type=16, render_type=0, width=1920, height=1080
+[2025-8-14 5:4:15.306][30824][I][Nvidia]NvEnc::UnInit start
+[2025-8-14 5:4:15.308][30824][I][Nvidia]NvEnc::UnInit success
+[2025-8-14 5:4:15.315][1436][I][Common]SimpleThread::run finish, func, thread name=monitor156, thread_id=1436, result=0
+[2025-8-14 5:4:15.315][30824][I][Common]SimpleThread::wait success, wait time=1 ms, time capacity=20000 ms
+[2025-8-14 5:4:15.315][30824][I][Common]SimpleThread::terminate thread result=0
+[2025-8-14 5:4:15.315][30824][I][Engine]VideoEngine::Close, engine_type=2, codec_type=16, color_space=3, size=1920x1080, input_framerate=60, bitrate=38000, max_bitrate=38000, encoder_type=1, profile=100, rc_mode=4, rc_vbv_rate=0.05, target_quality=0, video_enhance=0, data_analysis=1, scene_motion=0, scene_complexity=0, status_index=3, last_time=11(s), in_frames=900, out_frames=900, idr_frames=15, error_frames=0, avg_encode_time=4.5, avg_preprocess_time=0.0, avg_postprocess_time=0.0, avg_frame_time=10.8, avg_store_frame=0.0, avg_encode_framerate=75.9, avg_out_bitrate=43232.2
+[2025-8-14 5:4:15.315][30824][I][Engine]VideoEngine::Close, stats, encode_time_dist=0,0,0,52,475,225,135,13,0,0,0,0,0,0,0,, pre_time_dis=900,0,0,0,0,0,0,0,0,0,0,0,0,0,0,, post_time_dis=900,0,0,0,0,0,0,0,0,0,0,0,0,0,0,, packet_out_dist=0,1,14,17,19,37,97,458,183,73,1,0,0,0,0,, qp_dis=0,0,32,68,127,165,151,158,140,53,5,1,0,0,0,, satd_dist=0,87,612,155,33,10,2,0,1,0,0,0,0,0,0,, frame_time_dist=0,0,0,0,0,526,217,156,0,1,0,0,0,0,0,, input_interval_dist=0,0,16,868,14,0,0,1,0,0,0,0,0,0,0,, output_interval_dist=0,0,21,862,16,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:15.315][30824][I][Engine]VideoEngine::Close, result=0, extra_info=encode1:0;encode2:0;pre1:0;pre2:0;post1:0;post2:0;engines:2;analysis:0,0,0,0,0,0,0,0,0;emsg:;svip_enhance:0,0,0,0,0,0;sdr:0,0,0,0
+[2025-8-14 5:4:15.315][30824][I][Engine]VideoEngineCore::close, engine_id=2, codec=0x000001F8FB27AF20, render=0x0000000000000000, engine_type=2 codec_type=16, render_type=0, width=1920, height=1080
+[2025-8-14 5:4:15.315][30824][I][Nvidia]NvDec::UnInit, size=1920x1080, decoder=0x000001F8FB296340, cu_context=0x000001F8844B5010
+[2025-8-14 5:4:15.330][23924][I][Common]SimpleThread::run finish, func, thread name=monitor116, thread_id=23924, result=0
+[2025-8-14 5:4:15.345][30824][I][Common]SimpleThread::wait success, wait time=0 ms, time capacity=20000 ms
+[2025-8-14 5:4:15.345][30824][I][Common]SimpleThread::terminate thread result=0
+[2025-8-14 5:4:15.345][30824][I][Engine]VideoEngine::Close, engine_type=2, codec_type=16, render_type=0, size=1920x1080, config_level=0, input_framerate=60, status_index=3, last_time=11(s), in_frames=900, out_frames=900, idr_frames=15, error_frames=0, avg_frame_time=3.3, avg_decode_time=0.0, avg_render_time=0.0, avg_store_frame=0.0, avg_decode_framerate=78.8, avg_render_framerate=62.5, avg_in_bitrate=44.9, avg_out_bitrate=44.9
+[2025-8-14 5:4:15.345][30824][I][Engine]VideoEngine::Close, stats, frame_time_dist=0,76,779,44,0,0,0,0,0,1,0,0,0,0,0,, decode_time_dist=900,0,0,0,0,0,0,0,0,0,0,0,, render_time_dist=900,0,0,0,0,0,0,0,0,0,0,0,, store_frame_dist=900,0,0,0,0,0,0,0,0,0,0,0,, input_interval_dist=0,0,14,856,28,0,0,1,0,0,0,0,0,0,0,, output_interval_dist=0,0,14,852,33,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:15.345][30824][I][Engine]VideoEngine::Close, result=0, extra_info=decode1:0;decode2:0;render1:0;render2:0;;engines:2;history:0;cap:0;native:0;hp:0;rev1:0;rev2:0;rev3:0;rev4:0;
+[2025-8-14 5:4:15.345][30824][I][Engine]VideoEngine::Close, engine_type=2, codec_type=16, color_space=3, size=1920x1080, input_framerate=60, bitrate=38000, max_bitrate=38000, encoder_type=1, profile=100, rc_mode=4, rc_vbv_rate=0.05, target_quality=0, video_enhance=0, data_analysis=1, scene_motion=0, scene_complexity=0, status_index=3, last_time=11(s), in_frames=900, out_frames=900, idr_frames=15, error_frames=0, avg_encode_time=4.5, avg_preprocess_time=0.0, avg_postprocess_time=0.0, avg_frame_time=10.8, avg_store_frame=0.0, avg_encode_framerate=75.7, avg_out_bitrate=43097.8
+[2025-8-14 5:4:15.345][30824][I][Engine]VideoEngine::Close, stats, encode_time_dist=0,0,0,52,475,225,135,13,0,0,0,0,0,0,0,, pre_time_dis=900,0,0,0,0,0,0,0,0,0,0,0,0,0,0,, post_time_dis=900,0,0,0,0,0,0,0,0,0,0,0,0,0,0,, packet_out_dist=0,1,14,17,19,37,97,458,183,73,1,0,0,0,0,, qp_dis=0,0,32,68,127,165,151,158,140,53,5,1,0,0,0,, satd_dist=0,87,612,155,33,10,2,0,1,0,0,0,0,0,0,, frame_time_dist=0,0,0,0,0,526,217,156,0,1,0,0,0,0,0,, input_interval_dist=0,0,16,868,14,0,0,1,0,0,0,0,0,0,0,, output_interval_dist=0,0,21,862,16,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:15.345][30824][I][Engine]VideoEngine::Close, result=0, extra_info=encode1:0;encode2:0;pre1:0;pre2:0;post1:0;post2:0;engines:2;analysis:0,0,0,0,0,0,0,0,0;emsg:;svip_enhance:0,0,0,0,0,0;sdr:0,0,0,0
+[2025-8-14 5:4:15.345][30824][I][Engine]VideoEngine::CVideoEngine release, device_info=10.0.-268409356-unknown-NVIDIA GeForce RTX 3050 Laptop GPU  -11th Gen Intel(R) Core(TM) i5-11400H @ 2.70GHz-Aero 1-unknown
+[2025-8-14 5:4:15.345][30824][I][Engine]VideoEngineCore::~VideoEngineCore, engine_id=1, engines=2
+[2025-8-14 5:4:15.345][30824][I][Engine]VideoEngine::Close, engine_type=2, codec_type=16, render_type=0, size=1920x1080, config_level=0, input_framerate=60, status_index=3, last_time=11(s), in_frames=900, out_frames=900, idr_frames=15, error_frames=0, avg_frame_time=3.3, avg_decode_time=0.0, avg_render_time=0.0, avg_store_frame=0.0, avg_decode_framerate=78.8, avg_render_framerate=62.5, avg_in_bitrate=44.9, avg_out_bitrate=44.9
+[2025-8-14 5:4:15.345][30824][I][Engine]VideoEngine::Close, stats, frame_time_dist=0,76,779,44,0,0,0,0,0,1,0,0,0,0,0,, decode_time_dist=900,0,0,0,0,0,0,0,0,0,0,0,, render_time_dist=900,0,0,0,0,0,0,0,0,0,0,0,, store_frame_dist=900,0,0,0,0,0,0,0,0,0,0,0,, input_interval_dist=0,0,14,856,28,0,0,1,0,0,0,0,0,0,0,, output_interval_dist=0,0,14,852,33,0,0,0,0,0,0,0,0,0,0,
+[2025-8-14 5:4:15.345][30824][I][Engine]VideoEngine::Close, result=0, extra_info=decode1:0;decode2:0;render1:0;render2:0;;engines:1;history:0;cap:0;native:0;hp:0;rev1:0;rev2:0;rev3:0;rev4:0;
+[2025-8-14 5:4:15.345][30824][I][Engine]VideoEngine::CVideoEngine release, device_info=10.0.-268409356-unknown-NVIDIA GeForce RTX 3050 Laptop GPU  -11th Gen Intel(R) Core(TM) i5-11400H @ 2.70GHz-Aero 1-unknown
+[2025-8-14 5:4:15.345][30824][I][Engine]VideoEngineCore::~VideoEngineCore, engine_id=2, engines=1
+
+[------------------------ LOG FINISH -------------------------]
