@@ -14,7 +14,7 @@ from src.utils.action_transform import action_transform, mpc_action_transform
 
 # Hyperparams for MC
 WINDOW_SIZE = 10  # In seconds
-
+ROOT = "E:/pure_framerate_data/2024-06-14"
 
 def trace_simulator(
     file_path,
@@ -129,15 +129,11 @@ def trace_simulator(
 
     # If use the optim-buffer mode, load the action list and transform it
     if mode == "optim-buffer":
-        path = file_path[:-4].replace("data", "model/action") + "_vi_toptear_bufmix.npy"
-        action_list = np.load(path)
-        # path = file_path[:-4].replace("data", "model/action") + "_vi_toptear_buf1.npy"
-        # action_buf1 = np.load(path)
-        # path = file_path[:-4].replace("data", "model/action") + "_vi_toptear_buf2.npy"
-        # action_buf2 = np.load(path)
-        # action_list = mpc_action_transform(frame_ready_ts - nearest_display_ts[0], action_buf1, action_buf2, start_slot=actual_display_slot[0] + 1)
-        # path = file_path[:-4] + "_baseline_toptear_buf1_sim.npy"
-        # action_list = action_transform(action_buf2, frame_ready_ts - nearest_display_ts[0], tear_threshold=0)
+        relpath = os.path.relpath(file_path, ROOT)
+        new_file_path = os.path.join("./model/action", relpath)
+        path = new_file_path[:-4] + "_vi_notear_buf2.npy"
+        action_buf2 = np.load(path)
+        action_list = action_transform(action_buf2, frame_ready_ts - nearest_display_ts[0], tear_threshold=0)
 
     # UPDATE!
     # if display immediately, then its nearest vsync ts is the previous one, although it may cause screen tearing
@@ -511,6 +507,14 @@ def trace_simulator(
         if actual_display_slot[idx] != actual_display_slot[idx - 1]:
             cur_valid_flag[idx] = 1
 
+    if mode == "optim":
+        relpath = os.path.relpath(file_path, ROOT)
+        new_file_path = os.path.join("./model/action", relpath)
+        save_path = new_file_path[:-4] + "_vi_notear_buf2.npy"
+        if not os.path.exists(os.path.dirname(save_path)):
+            os.makedirs(os.path.dirname(save_path))
+        np.save(save_path, action_list)
+
     # not very accurate in no render_ctrl mode, as the time consumed to invoke present is not taken into account,
     # which may make the min fps even lower
     # valid_no = np.unique(nearest_display_slot).size
@@ -549,19 +553,16 @@ def trace_simulator(
 
     return file_path, result
 
-
-ROOT = "../data"
-
 if __name__ == "__main__":
-    for qoe_coefficient in [0.002, 0.004, 0.006, 0.008]:
+    for qoe_coefficient in [0]:
         final_log_file = open(
-            f"../log/VI-alltear-buf2-normal-qoe{qoe_coefficient}.log", "w"
+            f"../log/optim-notear-buf2-normal-qoe{qoe_coefficient}.log", "w"
         )
-        for directory in os.listdir(ROOT):
+        for directory in tqdm(os.listdir(ROOT)):
             if not directory.startswith("session"):
                 continue
 
-            for file_name in tqdm(os.listdir(os.path.join(ROOT, directory))):
+            for file_name in os.listdir(os.path.join(ROOT, directory)):
                 if not file_name.endswith(".csv"):
                     continue
                 path = os.path.join(ROOT, directory, file_name)
@@ -576,7 +577,7 @@ if __name__ == "__main__":
                     strict_buffer=True,
                     max_delay_frame_no=2,
                     frame_interval=17,
-                    mode="optim",
+                    mode="optim-buffer",
                     print_log=False,
                     qoe_coefficient=qoe_coefficient,
                 )

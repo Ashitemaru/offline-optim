@@ -13,19 +13,37 @@ from utils.data_loader import log_loader
 
 ROOT = "../data"
 
+def cdf_pair(x):
+    y = np.arange(len(x)) / float(len(x))
+    return x, y
+
 if __name__ == "__main__":
     data = []
-    for coeff in [0.002, 0.004, 0.006, 0.008, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06]:
-        log = log_loader(f"../log/VI-alltear-buf2-normal-qoe{coeff}.log")
-        avg_fps = np.mean([v[0] for k, v in log.items()])
-        avg_delay = np.mean([v[1] for k, v in log.items()])
-        data.append([coeff, avg_fps, avg_delay])
+    for mode in ["optim", "VI", "vsync"]:
+        log = log_loader(f"../log/{mode}-notear-buf2-normal-qoe0.log")
+        log = {k: v for k, v in log.items() if v[0] > 0}
+        fps = np.array([v[0] for k, v in log.items()])
+        delay = np.array([v[1] for k, v in log.items()])
+        data.append([mode, fps, delay])
+
+        print(mode, np.mean(fps), np.mean(delay))
 
     plt.figure()
-    for coeff, avg_fps, avg_delay in data:
-        plt.scatter(avg_delay, avg_fps, label=f"alpha={coeff}")
+    for mode, fps, _ in data:
+        x, y = cdf_pair(np.sort(fps))
+        plt.plot(x, y, label=mode.capitalize())
     plt.grid()
-    plt.xlabel("Average Delay")
-    plt.ylabel("Average FPS")
+    plt.xlabel("Average FPS")
+    plt.ylabel("CDF")
     plt.legend()
-    plt.show()
+    plt.savefig("./fps.png")
+
+    plt.figure()
+    for mode, _, delay in data:
+        x, y = cdf_pair(np.sort(delay))
+        plt.plot(x, y, label=mode.capitalize())
+    plt.grid()
+    plt.xlabel("Average Delay (ms)")
+    plt.ylabel("CDF")
+    plt.legend()
+    plt.savefig("./delay.png")
