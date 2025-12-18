@@ -54,8 +54,8 @@ RENDER_TIME_PREIDCTER = "ewma"
 # RENDER_TIME_PREIDCTER='fixed'
 # RENDER_TIME_PREIDCTER='oracle'
 
-PRINT_LOG = True
-# PRINT_LOG = False
+# PRINT_LOG = True
+PRINT_LOG = False
 # PRINT_DEBUG_LOG = True
 PRINT_DEBUG_LOG = False
 
@@ -63,24 +63,43 @@ BUFFER_OVERFLOW_THR = 0
 OVERDUE_TS_THR = 0
 
 MULTI_PARAMS = [
-    ["simpleCtrl", 2, "ewma", 2, 0, 30, "lifo"],
-    # ['simpleCtrl', 2, 'ewma', 1, 0, 30, 'lifo'],
-    # ['simpleCtrl', 2, 'ewma', 2, 1, 30, 'lifo'],
-    # ['simpleCtrl', 2, 'ewma', 2, 0, 10, 'lifo'],
-    ["optimal", 2, "ewma", 2, 0, 30, "lifo"],
-    # ['optimal', 2, 'ewma', 2, 0, 10, 'lifo'],
-    ["naiveVsync", 2, "ewma", 1, 0, 30, "lifo"],
-    # ['naiveVsync', 2, 'ewma', 1, 0, 10, 'lifo'],
-    # ['naiveVsync', 4, 'ewma', 1, 0, 30, 'lifo'],
-    # ['simpleCtrl', MAX_BUF_SIZE, RENDER_TIME_PREIDCTER, 2, 0, 20, DROP_FRAME_MODE],
-    # ['simpleCtrl', MAX_BUF_SIZE, RENDER_TIME_PREIDCTER, 2, 0, 10, DROP_FRAME_MODE],
-    # ['simpleCtrl', MAX_BUF_SIZE, RENDER_TIME_PREIDCTER, 1, 0, BONUS_FPS_NO_THR, DROP_FRAME_MODE],
-    # ['simpleCtrl', MAX_BUF_SIZE, RENDER_TIME_PREIDCTER, 2, 0, BONUS_FPS_NO_THR, DROP_FRAME_MODE],
-    # ['optimal', MAX_BUF_SIZE, RENDER_TIME_PREIDCTER, 1, 0, BONUS_FPS_NO_THR, DROP_FRAME_MODE],
-    # ['optimal', MAX_BUF_SIZE, RENDER_TIME_PREIDCTER, 2, 0, BONUS_FPS_NO_THR, DROP_FRAME_MODE],
-    # ['naiveVsync', MAX_BUF_SIZE, RENDER_TIME_PREIDCTER, 1, 0, BONUS_FPS_NO_THR, DROP_FRAME_MODE],
+    # ============================================================
+    # 1. 最优算法 (Optimal) - Oracle上界
+    # ============================================================
+    ["optimal", 2, "oracle", 2, 0, 30, "lifo", 4],
+    
+    # ============================================================
+    # 2. 垂直同步算法 (naiveVsync) - Baseline
+    # ============================================================
+    ["naiveVsync", 2, "ewma", 1, 0, 30, "lifo", 4],
+    
+    # ============================================================
+    # 3. simpleCtrl模式 - Grid Search
+    # 固定参数: buffer=2, bonus_fps=30, drop_mode=lifo
+    # 变化参数: predictor × perio_drop × quick_drop × anchor_mode = 3 × 3 × 10 × 5 = 450
+    # ============================================================
 ]
 
+# Grid Search: predictor × perio_drop × quick_drop × anchor_mode
+_PREDICTORS = ["oracle", "ewma", "fixed"]
+_PERIO_DROPS = [0, 1, 2]  # 0=disabled, 1=strict, 2=loose
+_QUICK_DROPS = list(range(10))  # 0-9
+_ANCHOR_MODES = list(range(5))  # 0-4 (0-4 different PTS prediction modes)
+
+for predictor in _PREDICTORS:
+    for perio_drop in _PERIO_DROPS:
+        for quick_drop in _QUICK_DROPS:
+            for anchor_mode in _ANCHOR_MODES:
+                MULTI_PARAMS.append([
+                    "simpleCtrl", 
+                    2,              # buffer=2 (fixed)
+                    predictor,      # oracle/ewma/fixed
+                    perio_drop,     # 0/1/2
+                    quick_drop,     # 0-9
+                    30,             # bonus_fps=30 (fixed)
+                    "lifo",         # drop_mode=lifo (fixed)
+                    anchor_mode     # 0-4 (PTS prediction mode)
+                ])
 
 class Result:
     def __init__(self):
@@ -2192,6 +2211,7 @@ def cal_mulit_para_result(file_path, print_log=False, save_path="test_data"):
         enable_quick_drop,
         bonus_fps_no_thr,
         drop_frame_mode,
+        anchor_frame_extrapolator_mode,
     ) in params:
         file_path, result, detail = cal_single_para_result(
             file_path,
@@ -2202,6 +2222,7 @@ def cal_mulit_para_result(file_path, print_log=False, save_path="test_data"):
             enable_quick_drop=enable_quick_drop,
             drop_frame_mode=drop_frame_mode,
             bonus_fps_no_thr=bonus_fps_no_thr,
+            anchor_frame_extrapolator_mode=anchor_frame_extrapolator_mode,
             print_log=print_log,
         )
 
@@ -2412,11 +2433,12 @@ def process_all_data_multithread(
             enable_quick_drop,
             bonus_fps_no_thr,
             drop_frame_mode,
+            anchor_frame_extrapolator_mode,
         ) in MULTI_PARAMS:
             output_file = open(
                 os.path.join(
                     save_path,
-                    "result-%s-periodrop%d_quickdrop%d_maxbuf%d_bonusfps%d_%s.csv"
+                    "result-%s-periodrop%d_quickdrop%d_maxbuf%d_bonusfps%d_%s_anchor%d.csv"
                     % (
                         display_mode,
                         enable_perio_drop,
@@ -2424,6 +2446,7 @@ def process_all_data_multithread(
                         max_buf_size,
                         bonus_fps_no_thr,
                         drop_frame_mode,
+                        anchor_frame_extrapolator_mode,
                     ),
                 ),
                 "a",
@@ -2590,6 +2613,7 @@ def process_all_data_multithread(
                             ENABLE_QUICK_DROP,
                             DROP_FRAME_MODE,
                             BONUS_FPS_NO_THR,
+                            ANCHOR_FRAME_EXTRAPOLATOR_MODE,
                         ),
                         callback=result.update_result,
                     )
