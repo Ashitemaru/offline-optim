@@ -83,8 +83,8 @@ MULTI_PARAMS = [
 # Grid Search: predictor × perio_drop × quick_drop × anchor_mode
 _PREDICTORS = ["oracle", "ewma", "fixed"]
 _PERIO_DROPS = [0, 1, 2]  # 0=disabled, 1=strict, 2=loose
-_QUICK_DROPS = list(range(10))  # 0-9
-_ANCHOR_MODES = list(range(5))  # 0-4 (0-4 different PTS prediction modes)
+_QUICK_DROPS = [0, 1]  # 0=disabled, 1=E2EJitterPredictor (mode 2-9 use unimplemented V2)
+_ANCHOR_MODES = [2, 4]  # Only use implemented modes: 2=Kalman filter, 4=sliding window
 
 for predictor in _PREDICTORS:
     for perio_drop in _PERIO_DROPS:
@@ -95,10 +95,10 @@ for predictor in _PREDICTORS:
                     2,              # buffer=2 (fixed)
                     predictor,      # oracle/ewma/fixed
                     perio_drop,     # 0/1/2
-                    quick_drop,     # 0-9
+                    quick_drop,     # 0=disabled, 1=basic predictor
                     30,             # bonus_fps=30 (fixed)
                     "lifo",         # drop_mode=lifo (fixed)
-                    anchor_mode     # 0-4 (PTS prediction mode)
+                    anchor_mode     # 2 or 4 (only implemented modes)
                 ])
 
 class Result:
@@ -620,10 +620,7 @@ def cal_single_para_result(
             )
         elif enable_quick_drop == 2:
             e2e_jitter_predictor = E2EJitterPredictorV2(
-                min_rtt,
-                frame_interval,
-                frame_stall_thr,
-                small_ts_margin,
+                frame_interval=frame_interval,
                 window_lth=JITTER_HISTORY_LTH,
             )
 
@@ -1905,7 +1902,7 @@ def cal_single_para_result(
     if print_log:
         log_file = open(
             file_path[:-4]
-            + "_%s_quickdrop%d_periodrop%d_maxbuf%d_renderTime_%s_%s_sim.csv"
+            + "_%s_quickdrop%d_periodrop%d_maxbuf%d_renderTime_%s_%s_anchor%d_sim.csv"
             % (
                 display_mode,
                 enable_quick_drop,
@@ -1913,6 +1910,7 @@ def cal_single_para_result(
                 max_buf_size,
                 render_time_predictor,
                 drop_frame_mode,
+                anchor_frame_extrapolator_mode,
             ),
             "w",
         )
@@ -2134,10 +2132,11 @@ def cal_single_para_result(
                 + "\n"
             )
 
+    os.makedirs(save_path, exist_ok=True)
     output_file = open(
         os.path.join(
             save_path,
-            "result-%s-periodrop%d_quickdrop%d_maxbuf%d_bonusfps%d_%s.csv"
+            "result-%s-periodrop%d_quickdrop%d_maxbuf%d_bonusfps%d_%s_anchor%d.csv"
             % (
                 display_mode,
                 enable_perio_drop,
@@ -2145,6 +2144,7 @@ def cal_single_para_result(
                 max_buf_size,
                 bonus_fps_no_thr,
                 drop_frame_mode,
+                anchor_frame_extrapolator_mode,
             ),
         ),
         "a",
@@ -2233,8 +2233,9 @@ def cal_mulit_para_result(file_path, print_log=False, save_path="test_data"):
 
     cur_result = results[0][:3] + results[0][9:13] + results[0][3:6] + [results[0][7]]
     for i in range(param_no):
-        cur_result += [results[i][6], results[i][8]]
+        cur_result += [results[i][6], results[i][10], results[i][8]]
 
+    os.makedirs(save_path, exist_ok=True)
     output_file = open(os.path.join(save_path, "result-multi_param.csv"), "a")
     output_file.write(
         file_path.replace(",", "_")
@@ -2571,7 +2572,7 @@ def process_all_data_multithread(
         header = "file_name,server_optim_enabled,client_optim_enabled,client_vsync_enabled,avg_dec_time,avg_dec_tot_time,avg_render_time,avg_proc_time,max_fps,min_fps,origin_fps,origin_render_queue"
         param_no = len(MULTI_PARAMS)
         for i in range(param_no):
-            header += ",valid_fps_%d,render_queue_%d" % (i + 1, i + 1)
+            header += ",valid_fps_%d,latency_%d,noloss_fps_%d" % (i + 1, i + 1, i + 1)
         output_file.write(header + "\n")
         output_file.close()
 
@@ -2733,19 +2734,22 @@ if __name__ == "__main__":
             else:
                 process_all_data_multithread(sys.argv[1])
         elif os.path.isfile(input_path):
-            cal_single_para_result(
-                input_path,
-                display_mode=DISPLAY_MODE,
-                max_buf_size=MAX_BUF_SIZE,
-                frame_interval=FRAME_INTERVAL,
-                render_time_predictor=RENDER_TIME_PREIDCTER,
-                enable_perio_drop=ENABLE_PERIO_DROP,
-                enable_quick_drop=ENABLE_QUICK_DROP,
-                drop_frame_mode=DROP_FRAME_MODE,
-                bonus_fps_no_thr=BONUS_FPS_NO_THR,
-                print_log=PRINT_LOG,
-                print_debug_log=PRINT_DEBUG_LOG,
-            )
-            # cal_mulit_para_result(input_path, print_log=PRINT_LOG)
+            # Support multi_param for single file: python simulator_v2.py file.csv 1
+            if len(sys.argv) == 3 and int(sys.argv[2]) == 1:
+                cal_mulit_para_result(input_path, print_log=PRINT_LOG)
+            else:
+                cal_single_para_result(
+                    input_path,
+                    display_mode=DISPLAY_MODE,
+                    max_buf_size=MAX_BUF_SIZE,
+                    frame_interval=FRAME_INTERVAL,
+                    render_time_predictor=RENDER_TIME_PREIDCTER,
+                    enable_perio_drop=ENABLE_PERIO_DROP,
+                    enable_quick_drop=ENABLE_QUICK_DROP,
+                    drop_frame_mode=DROP_FRAME_MODE,
+                    bonus_fps_no_thr=BONUS_FPS_NO_THR,
+                    print_log=PRINT_LOG,
+                    print_debug_log=PRINT_DEBUG_LOG,
+                )
         else:
             pass
