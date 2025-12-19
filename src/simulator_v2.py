@@ -5,6 +5,7 @@ import queue
 
 import load_data
 import numpy as np
+from tqdm import tqdm
 
 from trace_e2e_jitter_analyze import (
     AnchorFrameExtrapolator,
@@ -102,11 +103,12 @@ for predictor in _PREDICTORS:
                 ])
 
 class Result:
-    def __init__(self):
+    def __init__(self, pbar=None):
         self.res1 = []
         self.res2 = []
         self.res3 = []
         self.res4 = []
+        self.pbar = pbar
 
     def update_result(self, result):
         log_path = result[0]
@@ -116,6 +118,8 @@ class Result:
             self.res2.append(cur_res[3])
             self.res3.append(cur_res[4])
             self.res4.append(cur_res[5])
+        if self.pbar is not None:
+            self.pbar.update(1)
 
 
 def cal_next_vsync_ts(cur_ready_ts, anchor_vsync_ts, frame_interval):
@@ -206,47 +210,47 @@ def cal_single_para_result(
     data[:, 11] = np.maximum(data[:, 11], 0)
 
     if data is None:
-        print("None data")
+        # print("None data")
         return None, None, None
 
     if data.shape[0] < start_idle_len * 3:
-        print("trace too short, len:", data.shape[0])
+        # print("trace too short, len:", data.shape[0])
         target_path = os.path.join(os.path.dirname(file_path), "small")
         if not os.path.exists(target_path):
             os.makedirs(target_path, exist_ok=True)
         file_name = os.path.basename(file_path)
         shutil.move(file_path, os.path.join(target_path, file_name))
-        print("move file: %s to %s" % (file_path, os.path.join(target_path, file_name)))
+        # print("move file: %s to %s" % (file_path, os.path.join(target_path, file_name)))
         return None, None, None
 
     # only simulate 60FPS traces
     frame_render_interval = data[1:, 33] - data[:-1, 33]
     avg_render_interval = np.mean(frame_render_interval[frame_render_interval < 100])
     if np.abs(frame_interval - avg_render_interval) > 5:
-        print(
-            "wrong trace: %s avg_render_interval: %d" % (file_path, avg_render_interval)
-        )
+        # print(
+        #     "wrong trace: %s avg_render_interval: %d" % (file_path, avg_render_interval)
+        # )
         if avg_render_interval > frame_interval + 5:
             target_path = os.path.join(os.path.dirname(file_path), "30fps")
             if not os.path.exists(target_path):
                 os.makedirs(target_path, exist_ok=True)
             file_name = os.path.basename(file_path)
             shutil.move(file_path, os.path.join(target_path, file_name))
-            print(
-                "move file: %s to %s"
-                % (file_path, os.path.join(target_path, file_name))
-            )
+            # print(
+            #     "move file: %s to %s"
+            #     % (file_path, os.path.join(target_path, file_name))
+            # )
         elif avg_render_interval < frame_interval - 5:
             target_path = os.path.join(os.path.dirname(file_path), "120fps")
             if not os.path.exists(target_path):
                 os.makedirs(target_path, exist_ok=True)
             file_name = os.path.basename(file_path)
             shutil.move(file_path, os.path.join(target_path, file_name))
-            print(
-                "move file: %s to %s"
-                % (file_path, os.path.join(target_path, file_name))
-            )
-        print()
+            # print(
+            #     "move file: %s to %s"
+            #     % (file_path, os.path.join(target_path, file_name))
+            # )
+        # print()
         return None, None, None
 
     # initialization: calculate the average decode and render time
@@ -266,13 +270,13 @@ def cal_single_para_result(
         cal_avg_client_ime(start_idle_len)
     )
     if avg_render_time > 10:
-        print("render time too large: %d" % avg_render_time)
+        # print("render time too large: %d" % avg_render_time)
         target_path = os.path.join(os.path.dirname(file_path), "render_problem")
         if not os.path.exists(target_path):
             os.makedirs(target_path, exist_ok=True)
         file_name = os.path.basename(file_path)
         shutil.move(file_path, os.path.join(target_path, file_name))
-        print("move file: %s to %s" % (file_path, os.path.join(target_path, file_name)))
+        # print("move file: %s to %s" % (file_path, os.path.join(target_path, file_name)))
         return None, None, None
 
     data = data[start_idle_len:, :]
@@ -1898,7 +1902,7 @@ def cal_single_para_result(
     ]
 
     # print(file_path + ',\t' + ',\t'.join([f"{item = }" for item in result]))
-    print(file_path + ",\t" + ",\t".join(["%.3f" % item for item in result]))
+    # print(file_path + ",\t" + ",\t".join(["%.3f" % item for item in result]))
     if print_log:
         log_file = open(
             file_path[:-4]
@@ -2423,8 +2427,27 @@ def process_all_data(root_path):
 def process_all_data_multithread(
     root_path, multi_param=False, num_proc=32, save_path="test_data"
 ):
+    # 首先统计总文件数
+    total_files = 0
+    for data_folder in os.listdir(root_path):
+        if not data_folder.startswith("2024-"):
+            continue
+        data_path = os.path.join(root_path, data_folder)
+        for session_folder in os.listdir(data_path):
+            if not session_folder.startswith("session_info"):
+                continue
+            session_path = os.path.join(data_path, session_folder)
+            for log_name in os.listdir(session_path):
+                if not log_name.endswith(".csv"):
+                    continue
+                if log_name.endswith("sim.csv"):
+                    continue
+                total_files += 1
+    
+    # 创建进度条
+    pbar = tqdm(total=total_files, desc="Processing files", unit="file")
     p = multiprocessing.Pool(processes=num_proc)
-    result = Result()
+    result = Result(pbar=pbar)
     # 'naiveVsync', MAX_BUF_SIZE, RENDER_TIME_PREIDCTER, 1, 1, BONUS_FPS_NO_THR
     if multi_param:
         for (
@@ -2625,9 +2648,14 @@ def process_all_data_multithread(
 
     p.close()
     p.join()
-    print(np.mean(result.res1), np.min(result.res1), np.max(result.res1))
-    print(np.mean(result.res2), np.min(result.res2), np.max(result.res2))
-    print(np.mean(result.res3), np.min(result.res3), np.max(result.res3))
+    pbar.close()
+    
+    # 输出最终统计结果
+    print("\n=== Final Statistics ===")
+    print(f"Mean/Min/Max res1: {np.mean(result.res1):.3f} / {np.min(result.res1):.3f} / {np.max(result.res1):.3f}")
+    print(f"Mean/Min/Max res2: {np.mean(result.res2):.3f} / {np.min(result.res2):.3f} / {np.max(result.res2):.3f}")
+    print(f"Mean/Min/Max res3: {np.mean(result.res3):.3f} / {np.min(result.res3):.3f} / {np.max(result.res3):.3f}")
+    print(f"Mean/Min/Max res4: {np.mean(result.res4):.3f} / {np.min(result.res4):.3f} / {np.max(result.res4):.3f}")
     print(np.mean(result.res4), np.min(result.res4), np.max(result.res4))
 
 
