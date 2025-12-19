@@ -2136,7 +2136,7 @@ def cal_single_para_result(
     output_file = open(
         os.path.join(
             save_path,
-            "result-%s-periodrop%d_quickdrop%d_maxbuf%d_bonusfps%d_%s_anchor%d.csv"
+            "result-%s-periodrop%d_quickdrop%d_maxbuf%d_bonusfps%d_%s_%s_anchor%d.csv"
             % (
                 display_mode,
                 enable_perio_drop,
@@ -2144,6 +2144,7 @@ def cal_single_para_result(
                 max_buf_size,
                 bonus_fps_no_thr,
                 drop_frame_mode,
+                render_time_predictor,
                 anchor_frame_extrapolator_mode,
             ),
         ),
@@ -2439,7 +2440,7 @@ def process_all_data_multithread(
             output_file = open(
                 os.path.join(
                     save_path,
-                    "result-%s-periodrop%d_quickdrop%d_maxbuf%d_bonusfps%d_%s_anchor%d.csv"
+                    "result-%s-periodrop%d_quickdrop%d_maxbuf%d_bonusfps%d_%s_%s_anchor%d.csv"
                     % (
                         display_mode,
                         enable_perio_drop,
@@ -2447,6 +2448,7 @@ def process_all_data_multithread(
                         max_buf_size,
                         bonus_fps_no_thr,
                         drop_frame_mode,
+                        render_predictor,
                         anchor_frame_extrapolator_mode,
                     ),
                 ),
@@ -2505,7 +2507,7 @@ def process_all_data_multithread(
         output_file = open(
             os.path.join(
                 save_path,
-                "result-%s-periodrop%d_quickdrop%d_maxbuf%d_bonusfps%d_%s.csv"
+                "result-%s-periodrop%d_quickdrop%d_maxbuf%d_bonusfps%d_%s_%s_anchor%d.csv"
                 % (
                     DISPLAY_MODE,
                     ENABLE_PERIO_DROP,
@@ -2513,6 +2515,8 @@ def process_all_data_multithread(
                     MAX_BUF_SIZE,
                     BONUS_FPS_NO_THR,
                     DROP_FRAME_MODE,
+                    RENDER_TIME_PREIDCTER,
+                    ANCHOR_FRAME_EXTRAPOLATOR_MODE,
                 ),
             ),
             "a",
@@ -2634,7 +2638,7 @@ if __name__ == "__main__":
         output_file = open(
             os.path.join(
                 target_path,
-                "result-%s-periodrop%d_quickdrop%d_maxbuf%d_bonusfps%d_%s.csv"
+                "result-%s-periodrop%d_quickdrop%d_maxbuf%d_bonusfps%d_%s_%s_anchor%d.csv"
                 % (
                     DISPLAY_MODE,
                     ENABLE_PERIO_DROP,
@@ -2642,6 +2646,8 @@ if __name__ == "__main__":
                     MAX_BUF_SIZE,
                     BONUS_FPS_NO_THR,
                     DROP_FRAME_MODE,
+                    RENDER_TIME_PREIDCTER,
+                    ANCHOR_FRAME_EXTRAPOLATOR_MODE,
                 ),
             ),
             "a",
