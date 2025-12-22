@@ -640,18 +640,18 @@ def cal_single_para_result(
     while True:
         sim_cnt += 1
         if sim_cnt > 9999999:
-            print(
-                file_path[:-4]
-                + "_%s_quickdrop%d_periodrop%d_maxbuf%d_renderTime_%s_sim.csv"
-                % (
-                    display_mode,
-                    enable_quick_drop,
-                    enable_perio_drop,
-                    max_buf_size,
-                    render_time_predictor,
-                ),
-                "simulation failed",
-            )
+            # print(
+            #     file_path[:-4]
+            #     + "_%s_quickdrop%d_periodrop%d_maxbuf%d_renderTime_%s_sim.csv"
+            #     % (
+            #         display_mode,
+            #         enable_quick_drop,
+            #         enable_perio_drop,
+            #         max_buf_size,
+            #         render_time_predictor,
+            #     ),
+            #     "simulation failed",
+            # )
             return None, None, None
 
         if not early_drop_frame_flag:
@@ -2418,14 +2418,14 @@ def process_all_data(root_path):
                     res3.append(cur_res[4])
                     res4.append(cur_res[5])
 
-    print(np.mean(res1), np.min(res1), np.max(res1))
-    print(np.mean(res2), np.min(res2), np.max(res2))
-    print(np.mean(res3), np.min(res3), np.max(res3))
-    print(np.mean(res4), np.min(res4), np.max(res4))
+    # print(np.mean(res1), np.min(res1), np.max(res1))
+    # print(np.mean(res2), np.min(res2), np.max(res2))
+    # print(np.mean(res3), np.min(res3), np.max(res3))
+    # print(np.mean(res4), np.min(res4), np.max(res4))
 
 
 def process_all_data_multithread(
-    root_path, multi_param=False, num_proc=32, save_path="test_data"
+    root_path, multi_param=False, num_proc=4, save_path="test_data"
 ):
     # 首先统计总文件数
     total_files = 0
