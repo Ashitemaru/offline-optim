@@ -1,4 +1,5 @@
 import os, sys, shutil
+import time
 import multiprocessing
 import collections
 import queue
@@ -18,6 +19,7 @@ DISPLAY_MODE = "simpleCtrl"
 # DISPLAY_MODE = 'optimal'
 MAX_BUF_SIZE = 2
 FRAME_INTERVAL = 16.666667
+TEARING_SLOT_THRESHOLD = 1  # ms window near vsync considered tear-safe
 ENABLE_PERIO_DROP = 2  # 1 for strict restriction, 2 for losse restriction
 ENABLE_QUICK_DROP = 0  # 1 for simple probability-based method
 
@@ -60,47 +62,69 @@ PRINT_LOG = False
 # PRINT_DEBUG_LOG = True
 PRINT_DEBUG_LOG = False
 
+BAD_CASES_ROOT = os.path.expanduser("~/bad_cases")
+BAD_CASES_ROOT_ABS = os.path.abspath(BAD_CASES_ROOT)
+
+
+def move_to_bad_cases(file_path, category):
+    target_path = os.path.join(BAD_CASES_ROOT, category)
+    os.makedirs(target_path, exist_ok=True)
+    file_abs = os.path.abspath(file_path)
+    try:
+        is_bad_case = os.path.commonpath([file_abs, BAD_CASES_ROOT_ABS]) == BAD_CASES_ROOT_ABS
+    except ValueError:
+        is_bad_case = False
+    if is_bad_case:
+        return
+    shutil.move(file_path, os.path.join(target_path, os.path.basename(file_path)))
+
+
+def build_log_path(file_path, save_path, suffix, sub_dir):
+    base_name, _ = os.path.splitext(os.path.basename(file_path))
+    target_dir = os.path.join(save_path, sub_dir)
+    os.makedirs(target_dir, exist_ok=True)
+    return os.path.join(target_dir, base_name + suffix)
+
 BUFFER_OVERFLOW_THR = 0
 OVERDUE_TS_THR = 0
 
-MULTI_PARAMS = [
-    # ============================================================
-    # 1. 最优算法 (Optimal) - Oracle上界
-    # ============================================================
-    ["optimal", 2, "oracle", 2, 0, 30, "lifo", 4],
-    
-    # ============================================================
-    # 2. 垂直同步算法 (naiveVsync) - Baseline
-    # ============================================================
-    ["naiveVsync", 2, "ewma", 1, 0, 30, "lifo", 4],
-    
-    # ============================================================
-    # 3. simpleCtrl模式 - Grid Search
-    # 固定参数: buffer=2, bonus_fps=30, drop_mode=lifo
-    # 变化参数: predictor × perio_drop × quick_drop × anchor_mode = 3 × 3 × 10 × 5 = 450
-    # ============================================================
+MULTI_PARAMS = []
+for buf_size in [1, 3, 5, 8, 10]:
+    MULTI_PARAMS.append(
+        ["naiveVsync", buf_size, "ewma", 1, 0, 30, "lifo", 4, False]
+    )
+
+MULTI_PARAMS += [
+    # 云游戏 + VSync ON
+    ["naiveVsync", 2, "ewma", 1, 0, 30, "lifo", 4, False],
+    # 云游戏 + VSync OFF（最小缓冲）
+    ["simpleCtrl", 1, "ewma", 0, 0, 30, "lifo", 4, False],
+    # 本地模拟 + VSync ON
+    ["naiveVsync", 2, "ewma", 1, 0, 30, "lifo", 4, True],
+    # 本地模拟 + VSync OFF
+    ["simpleCtrl", 1, "ewma", 0, 0, 30, "lifo", 4, True],
 ]
 
 # Grid Search: predictor × perio_drop × quick_drop × anchor_mode
-_PREDICTORS = ["oracle", "ewma", "fixed"]
-_PERIO_DROPS = [0, 1, 2]  # 0=disabled, 1=strict, 2=loose
-_QUICK_DROPS = [0, 1]  # 0=disabled, 1=E2EJitterPredictor (mode 2-9 use unimplemented V2)
-_ANCHOR_MODES = [2, 4]  # Only use implemented modes: 2=Kalman filter, 4=sliding window
+# _PREDICTORS = ["oracle", "ewma", "fixed"]
+# _PERIO_DROPS = [0, 1, 2]  # 0=disabled, 1=strict, 2=loose
+# _QUICK_DROPS = [0, 1]  # 0=disabled, 1=E2EJitterPredictor (mode 2-9 use unimplemented V2)
+# _ANCHOR_MODES = [2, 4]  # Only use implemented modes: 2=Kalman filter, 4=sliding window
 
-for predictor in _PREDICTORS:
-    for perio_drop in _PERIO_DROPS:
-        for quick_drop in _QUICK_DROPS:
-            for anchor_mode in _ANCHOR_MODES:
-                MULTI_PARAMS.append([
-                    "simpleCtrl", 
-                    2,              # buffer=2 (fixed)
-                    predictor,      # oracle/ewma/fixed
-                    perio_drop,     # 0/1/2
-                    quick_drop,     # 0=disabled, 1=basic predictor
-                    30,             # bonus_fps=30 (fixed)
-                    "lifo",         # drop_mode=lifo (fixed)
-                    anchor_mode     # 2 or 4 (only implemented modes)
-                ])
+# for predictor in _PREDICTORS:
+#     for perio_drop in _PERIO_DROPS:
+#         for quick_drop in _QUICK_DROPS:
+#             for anchor_mode in _ANCHOR_MODES:
+#                 MULTI_PARAMS.append([
+#                     "simpleCtrl", 
+#                     2,              # buffer=2 (fixed)
+#                     predictor,      # oracle/ewma/fixed
+#                     perio_drop,     # 0/1/2
+#                     quick_drop,     # 0=disabled, 1=basic predictor
+#                     30,             # bonus_fps=30 (fixed)
+#                     "lifo",         # drop_mode=lifo (fixed)
+#                     anchor_mode     # 2 or 4 (only implemented modes)
+#                 ])
 
 class Result:
     def __init__(self, pbar=None):
@@ -108,16 +132,20 @@ class Result:
         self.res2 = []
         self.res3 = []
         self.res4 = []
+        self.tearing_freqs = []
         self.pbar = pbar
 
     def update_result(self, result):
         log_path = result[0]
         cur_res = result[1]
+        tearing_freq = result[3] if len(result) > 3 else None
         if cur_res is not None:
             self.res1.append(cur_res[2])
             self.res2.append(cur_res[3])
             self.res3.append(cur_res[4])
             self.res4.append(cur_res[5])
+        if tearing_freq is not None:
+            self.tearing_freqs.append(tearing_freq)
         if self.pbar is not None:
             self.pbar.update(1)
 
@@ -192,9 +220,11 @@ def cal_single_para_result(
     drop_frame_mode="lifo",
     bonus_fps_no_thr=30,
     anchor_frame_extrapolator_mode=4,
+    simulate_local=False,
     save_path="test_data",
     print_log=True,
     print_debug_log=False,
+    measure_runtime=False,
     sim_data_len=60 * 60 * 20,
     start_idle_len=3600,
 ):
@@ -202,6 +232,7 @@ def cal_single_para_result(
     Simulate the display process with a frame trace and a set of parameters.
     param display_mode: naive_vsync, simple_ctrl
     """
+    start_time = time.perf_counter()
     # print(file_path[:-4] + '_%s_quickdrop%d_periodrop%d_maxbuf%d_renderTime_%s_%s_sim.csv' %(display_mode, enable_quick_drop, enable_perio_drop, max_buf_size, render_time_predictor), 'start simulation')
 
     data, info = load_data.load_detailed_framerate_log(
@@ -209,19 +240,29 @@ def cal_single_para_result(
     )  # sim for 20min
     data[:, 11] = np.maximum(data[:, 11], 0)
 
+    if simulate_local:
+        # Approximate local gaming by removing network transmission & jitter components
+        data = data.copy()
+        
+        # Remove Network Delay: client_recv_ts (5) -= net_time (16)
+        # We assume client_recv_ts represents arrival time, and net_time represents transmission delay
+        data[:, 5] = data[:, 5] - data[:, 16]
+        
+        # Remove Codec Delays: unpack(6), sdk_outside_queue(7), sdk_inside_queue(8), decode(9)
+        data[:, 6:10] = 0
+        
+        data[:, 12:22] = 0  # proxy / send / net_time / jitter columns
+        data[:, 59] = 0      # min_rtt
+
     if data is None:
         # print("None data")
-        return None, None, None
+        return None, None, None, None
 
     if data.shape[0] < start_idle_len * 3:
         # print("trace too short, len:", data.shape[0])
-        target_path = os.path.join(os.path.dirname(file_path), "small")
-        if not os.path.exists(target_path):
-            os.makedirs(target_path, exist_ok=True)
-        file_name = os.path.basename(file_path)
-        shutil.move(file_path, os.path.join(target_path, file_name))
+        move_to_bad_cases(file_path, "small")
         # print("move file: %s to %s" % (file_path, os.path.join(target_path, file_name)))
-        return None, None, None
+        return None, None, None, None
 
     # only simulate 60FPS traces
     frame_render_interval = data[1:, 33] - data[:-1, 33]
@@ -231,27 +272,19 @@ def cal_single_para_result(
         #     "wrong trace: %s avg_render_interval: %d" % (file_path, avg_render_interval)
         # )
         if avg_render_interval > frame_interval + 5:
-            target_path = os.path.join(os.path.dirname(file_path), "30fps")
-            if not os.path.exists(target_path):
-                os.makedirs(target_path, exist_ok=True)
-            file_name = os.path.basename(file_path)
-            shutil.move(file_path, os.path.join(target_path, file_name))
+            move_to_bad_cases(file_path, "30fps")
             # print(
             #     "move file: %s to %s"
             #     % (file_path, os.path.join(target_path, file_name))
             # )
         elif avg_render_interval < frame_interval - 5:
-            target_path = os.path.join(os.path.dirname(file_path), "120fps")
-            if not os.path.exists(target_path):
-                os.makedirs(target_path, exist_ok=True)
-            file_name = os.path.basename(file_path)
-            shutil.move(file_path, os.path.join(target_path, file_name))
+            move_to_bad_cases(file_path, "120fps")
             # print(
             #     "move file: %s to %s"
             #     % (file_path, os.path.join(target_path, file_name))
             # )
         # print()
-        return None, None, None
+        return None, None, None, None
 
     # initialization: calculate the average decode and render time
     def cal_avg_client_ime(samp_len):
@@ -271,13 +304,9 @@ def cal_single_para_result(
     )
     if avg_render_time > 10:
         # print("render time too large: %d" % avg_render_time)
-        target_path = os.path.join(os.path.dirname(file_path), "render_problem")
-        if not os.path.exists(target_path):
-            os.makedirs(target_path, exist_ok=True)
-        file_name = os.path.basename(file_path)
-        shutil.move(file_path, os.path.join(target_path, file_name))
+        move_to_bad_cases(file_path, "render_problem")
         # print("move file: %s to %s" % (file_path, os.path.join(target_path, file_name)))
-        return None, None, None
+        return None, None, None, None
 
     data = data[start_idle_len:, :]
 
@@ -462,9 +491,10 @@ def cal_single_para_result(
     early_drop_frame_flag = False
 
     if print_debug_log:
-        log_file = open(
-            file_path[:-4]
-            + "_%s_quickdrop%d_periodrop%d_maxbuf%d_renderTime_%s_debug.csv"
+        debug_log_path = build_log_path(
+            file_path,
+            save_path,
+            "_%s_quickdrop%d_periodrop%d_maxbuf%d_renderTime_%s_debug.csv"
             % (
                 display_mode,
                 enable_quick_drop,
@@ -472,8 +502,9 @@ def cal_single_para_result(
                 max_buf_size,
                 render_time_predictor,
             ),
-            "w",
+            "debug_logs",
         )
+        log_file = open(debug_log_path, "w")
         log_file.write(
             ",".join(
                 [
@@ -652,7 +683,7 @@ def cal_single_para_result(
             #     ),
             #     "simulation failed",
             # )
-            return None, None, None
+            return None, None, None, None
 
         if not early_drop_frame_flag:
             idx += 1
@@ -1827,6 +1858,25 @@ def cal_single_para_result(
     optimized_render_queue = np.mean(actual_render_queue[optimized_valid_idx])
     extra_display_time = np.mean(extra_display_ts[optimized_valid_idx])
 
+    tearing_freq = 0.0
+    if optimized_valid_idx[0].size > 1:
+        # User Logic V5: Differential Pacing Stability
+        # Use median frame interval to determine "target pacing".
+        # Calculate deviation of each frame interval from this median.
+        # This isolates "network jitter" (irregular intervals) from "global clock drift" or "non-60Hz sources".
+        valid_ready_ts = dec_over_ts[optimized_valid_idx]
+        if valid_ready_ts.size > 1:
+            frame_diffs = np.diff(valid_ready_ts)
+            intrinsic_interval = np.median(frame_diffs)
+            
+            # If interval deviates by > 2.0ms from the median, it's considered "jittery/torn".
+            bad_pacing = np.abs(frame_diffs - intrinsic_interval) > 2.0
+            tearing_freq = float(np.mean(bad_pacing))
+    smooth_std = 0.0
+    if optimized_valid_idx[0].size > 1:
+        valid_ts = actual_display_ts[optimized_valid_idx]
+        smooth_std = float(np.std(np.diff(valid_ts)))
+
     quick_drop_fail_ratio = (
         (quick_drop_failed_cnt / quick_drop_total_cnt)
         if quick_drop_total_cnt > 0
@@ -1899,14 +1949,17 @@ def cal_single_para_result(
         biggest_network_jitter_queue_flag.sum(),
         biggest_decode_jitter_queue_flag.sum(),
         biggest_display_jitter_queue_flag.sum(),
+        tearing_freq,
+        smooth_std,
     ]
 
     # print(file_path + ',\t' + ',\t'.join([f"{item = }" for item in result]))
     # print(file_path + ",\t" + ",\t".join(["%.3f" % item for item in result]))
     if print_log:
-        log_file = open(
-            file_path[:-4]
-            + "_%s_quickdrop%d_periodrop%d_maxbuf%d_renderTime_%s_%s_anchor%d_sim.csv"
+        sim_log_path = build_log_path(
+            file_path,
+            save_path,
+            "_%s_quickdrop%d_periodrop%d_maxbuf%d_renderTime_%s_%s_anchor%d_sim.csv"
             % (
                 display_mode,
                 enable_quick_drop,
@@ -1916,8 +1969,9 @@ def cal_single_para_result(
                 drop_frame_mode,
                 anchor_frame_extrapolator_mode,
             ),
-            "w",
+            "sim_logs",
         )
+        log_file = open(sim_log_path, "w")
         log_file.write(
             ",".join(
                 [
@@ -2137,10 +2191,11 @@ def cal_single_para_result(
             )
 
     os.makedirs(save_path, exist_ok=True)
+    scenario_suffix = "-local" if simulate_local else "-cloud"
     output_file = open(
         os.path.join(
             save_path,
-            "result-%s-periodrop%d_quickdrop%d_maxbuf%d_bonusfps%d_%s_%s_anchor%d.csv"
+            "result-%s-periodrop%d_quickdrop%d_maxbuf%d_bonusfps%d_%s_%s_anchor%d%s.csv"
             % (
                 display_mode,
                 enable_perio_drop,
@@ -2150,17 +2205,26 @@ def cal_single_para_result(
                 drop_frame_mode,
                 render_time_predictor,
                 anchor_frame_extrapolator_mode,
+                scenario_suffix,
             ),
         ),
         "a",
     )
+    scenario_tag = "local" if simulate_local else "cloud"
     output_file.write(
         file_path.replace(",", "_")
-        + ", "
+        + f"|{scenario_tag}, "
         + ", ".join([str(item) for item in result])
         + "\n"
     )
     output_file.close()
+
+    if measure_runtime:
+        elapsed = time.perf_counter() - start_time
+        print(f"[timing] {os.path.basename(file_path)} took {elapsed:.2f}s")
+
+    if not print_log:
+        return file_path, result, None, tearing_freq
 
     return (
         file_path,
@@ -2199,6 +2263,7 @@ def cal_single_para_result(
             optimized_noloss_fps,
             frame_jitter_flag,
         ],
+        tearing_freq,
     )
 
 
@@ -2208,6 +2273,7 @@ def cal_mulit_para_result(file_path, print_log=False, save_path="test_data"):
     param_no = len(params)
     details = []
     results = []
+    tearing_freqs = []
     for (
         display_mode,
         max_buf_size,
@@ -2217,8 +2283,9 @@ def cal_mulit_para_result(file_path, print_log=False, save_path="test_data"):
         bonus_fps_no_thr,
         drop_frame_mode,
         anchor_frame_extrapolator_mode,
+        simulate_local,
     ) in params:
-        file_path, result, detail = cal_single_para_result(
+        file_path, result, detail, tearing_freq = cal_single_para_result(
             file_path,
             display_mode=display_mode,
             max_buf_size=max_buf_size,
@@ -2228,17 +2295,19 @@ def cal_mulit_para_result(file_path, print_log=False, save_path="test_data"):
             drop_frame_mode=drop_frame_mode,
             bonus_fps_no_thr=bonus_fps_no_thr,
             anchor_frame_extrapolator_mode=anchor_frame_extrapolator_mode,
+            simulate_local=simulate_local,
             print_log=print_log,
         )
 
         if file_path is None:
-            return None, None, None
+            return None, None, None, None
         details.append(detail)
         results.append(result)
+        tearing_freqs.append(tearing_freq)
 
     cur_result = results[0][:3] + results[0][9:13] + results[0][3:6] + [results[0][7]]
     for i in range(param_no):
-        cur_result += [results[i][6], results[i][10], results[i][8]]
+        cur_result += [results[i][6], results[i][10], results[i][8], results[i][-2], results[i][-1]]
 
     os.makedirs(save_path, exist_ok=True)
     output_file = open(os.path.join(save_path, "result-multi_param.csv"), "a")
@@ -2250,9 +2319,15 @@ def cal_mulit_para_result(file_path, print_log=False, save_path="test_data"):
     )
     output_file.close()
 
+    if not print_log:
+        return file_path, cur_result, None, (tearing_freqs[0] if tearing_freqs else None)
+
     if print_log:
         tot_frame_no = details[0][0].shape[0]
-        log_file = open(file_path[:-4] + "_multi_param_sim.csv", "w")
+        sim_log_path = build_log_path(
+            file_path, save_path, "_multi_param_sim.csv", "sim_logs"
+        )
+        log_file = open(sim_log_path, "w")
         header = [
             "sim_index",
             "render_index",
@@ -2383,7 +2458,7 @@ def cal_mulit_para_result(file_path, print_log=False, save_path="test_data"):
                 ]
             log_file.write(",".join(str(item) for item in values) + "\n")
 
-    return file_path, cur_result, details
+    return file_path, cur_result, details, (tearing_freqs[0] if tearing_freqs else None)
 
 
 def process_all_data(root_path):
@@ -2411,7 +2486,7 @@ def process_all_data(root_path):
                 # _, cur_res, _ = cal_single_para_result(log_path, DISPLAY_MODE, MAX_BUF_SIZE, FRAME_INTERVAL,
                 #                                             RENDER_TIME_PREIDCTER, ENABLE_PERIO_DROP, ENABLE_QUICK_DROP,
                 #                                             DROP_FRAME_MODE, BONUS_FPS_NO_THR)
-                _, cur_res, _ = cal_mulit_para_result(log_path)
+                _, cur_res, _, _ = cal_mulit_para_result(log_path)
                 if cur_res is not None:
                     res1.append(cur_res[2])
                     res2.append(cur_res[3])
@@ -2425,7 +2500,7 @@ def process_all_data(root_path):
 
 
 def process_all_data_multithread(
-    root_path, multi_param=False, num_proc=4, save_path="test_data"
+    root_path, multi_param=False, num_proc=1, save_path="test_data"
 ):
     # 首先统计总文件数
     total_files = 0
@@ -2459,11 +2534,13 @@ def process_all_data_multithread(
             bonus_fps_no_thr,
             drop_frame_mode,
             anchor_frame_extrapolator_mode,
+            simulate_local,
         ) in MULTI_PARAMS:
+            scenario_tag = "-local" if simulate_local else "-cloud"
             output_file = open(
                 os.path.join(
                     save_path,
-                    "result-%s-periodrop%d_quickdrop%d_maxbuf%d_bonusfps%d_%s_%s_anchor%d.csv"
+                    "result-%s-periodrop%d_quickdrop%d_maxbuf%d_bonusfps%d_%s_%s_anchor%d%s.csv"
                     % (
                         display_mode,
                         enable_perio_drop,
@@ -2473,20 +2550,24 @@ def process_all_data_multithread(
                         drop_frame_mode,
                         render_predictor,
                         anchor_frame_extrapolator_mode,
+                        scenario_tag,
                     ),
                 ),
                 "a",
             )
-            postfix = "-%s-periodrop%d_quickdrop%d_bonusfps%d_%s" % (
+            postfix = "-%s-periodrop%d_quickdrop%d_bonusfps%d_%s%s" % (
                 display_mode,
                 enable_perio_drop,
                 enable_quick_drop,
                 bonus_fps_no_thr,
                 drop_frame_mode,
+                scenario_tag,
             )
             output_file.write(
-                "file_name,server_optim_enabled,client_optim_enabled,client_vsync_enabled,max_fps,min_fps,origin_fps,optimized_fps%s,optimized_objective_fps%s,optimized_noloss_fps%s,origin_render_queue,optimized_render_queue%s,extra_display_ts%s,optimized_total_render_queue%s,avg_dec_time,avg_dec_tot_time,avg_render_time,avg_proc_time,tot_frame_no,tot_queue_cnt%s,network_big_frame_induced_queue%s,network_i_frame_induced_queue%s,network_dl_jitter_induced_queue%s,network_stall_induced_queue%s,network_packet_loss_induced_queue%s,render_jitter_induced_queue%s,server_jitter_induced_queue%s,decoder_jitter_induced_queue%s,display_jitter_induced_queue%s,near_vsync_jitter_induced_queue%s,netts_over100_cnt,displayts_over12_cnt,large_renderinterval_cnt,quick_drop_failed_cnt%s,quick_drop_fail_ratio%s,quick_drop_missed_cnt%s,quick_drop_miss_ratio%s,quick_drop_total_cnt%s,exploitable_network_big_frame_induced_queue%s,exploitable_network_i_frame_induced_queue%s,exploitable_network_dl_jitter_induced_queue%s,exploitable_network_stall_induced_queue%s,exploitable_network_packet_loss_induced_queue%s,exploitable_render_jitter_induced_queue%s,exploitable_server_jitter_induced_queue%s,exploitable_decoder_jitter_induced_queue%s,exploitable_display_jitter_induced_queue%s,exploitable_near_vsync_jitter_induced_queue%s,biggest_render_jitter_queue%s,biggest_network_jitter_queue%s,biggest_decode_jitter_queue%s,biggest_display_jitter_queue%s\n"
+                "file_name,server_optim_enabled,client_optim_enabled,client_vsync_enabled,max_fps,min_fps,origin_fps,optimized_fps%s,optimized_objective_fps%s,optimized_noloss_fps%s,origin_render_queue,optimized_render_queue%s,extra_display_ts%s,optimized_total_render_queue%s,avg_dec_time,avg_dec_tot_time,avg_render_time,avg_proc_time,tot_frame_no,tot_queue_cnt%s,network_big_frame_induced_queue%s,network_i_frame_induced_queue%s,network_dl_jitter_induced_queue%s,network_stall_induced_queue%s,network_packet_loss_induced_queue%s,render_jitter_induced_queue%s,server_jitter_induced_queue%s,decoder_jitter_induced_queue%s,display_jitter_induced_queue%s,near_vsync_jitter_induced_queue%s,netts_over100_cnt,displayts_over12_cnt,large_renderinterval_cnt,quick_drop_failed_cnt%s,quick_drop_fail_ratio%s,quick_drop_missed_cnt%s,quick_drop_miss_ratio%s,quick_drop_total_cnt%s,exploitable_network_big_frame_induced_queue%s,exploitable_network_i_frame_induced_queue%s,exploitable_network_dl_jitter_induced_queue%s,exploitable_network_stall_induced_queue%s,exploitable_network_packet_loss_induced_queue%s,exploitable_render_jitter_induced_queue%s,exploitable_server_jitter_induced_queue%s,exploitable_decoder_jitter_induced_queue%s,exploitable_display_jitter_induced_queue%s,exploitable_near_vsync_jitter_induced_queue%s,biggest_render_jitter_queue%s,biggest_network_jitter_queue%s,biggest_decode_jitter_queue%s,biggest_display_jitter_queue%s,tearing_freq%s,smooth_std%s\n"
                 % (
+                    postfix,
+                    postfix,
                     postfix,
                     postfix,
                     postfix,
@@ -2552,8 +2633,10 @@ def process_all_data_multithread(
             DROP_FRAME_MODE,
         )
         output_file.write(
-            "file_name,server_optim_enabled,client_optim_enabled,client_vsync_enabled,max_fps,min_fps,origin_fps,optimized_fps%s,optimized_objective_fps%s,optimized_noloss_fps%s,origin_render_queue,optimized_render_queue%s,extra_display_ts%s,optimized_total_render_queue%s,avg_dec_time,avg_dec_tot_time,avg_render_time,avg_proc_time,tot_frame_no,tot_queue_cnt%s,network_big_frame_induced_queue%s,network_i_frame_induced_queue%s,network_dl_jitter_induced_queue%s,network_stall_induced_queue%s,network_packet_loss_induced_queue%s,render_jitter_induced_queue%s,server_jitter_induced_queue%s,decoder_jitter_induced_queue%s,display_jitter_induced_queue%s,near_vsync_jitter_induced_queue%s,netts_over100_cnt,displayts_over12_cnt,large_renderinterval_cnt,quick_drop_failed_cnt%s,quick_drop_fail_ratio%s,quick_drop_missed_cnt%s,quick_drop_miss_ratio%s,quick_drop_total_cnt%s,exploitable_network_big_frame_induced_queue%s,exploitable_network_i_frame_induced_queue%s,exploitable_network_dl_jitter_induced_queue%s,exploitable_network_stall_induced_queue%s,exploitable_network_packet_loss_induced_queue%s,exploitable_render_jitter_induced_queue%s,exploitable_server_jitter_induced_queue%s,exploitable_decoder_jitter_induced_queue%s,exploitable_display_jitter_induced_queue%s,exploitable_near_vsync_jitter_induced_queue%s,biggest_render_jitter_queue%s,biggest_network_jitter_queue%s,biggest_decode_jitter_queue%s,biggest_display_jitter_queue%s\n"
+            "file_name,server_optim_enabled,client_optim_enabled,client_vsync_enabled,max_fps,min_fps,origin_fps,optimized_fps%s,optimized_objective_fps%s,optimized_noloss_fps%s,origin_render_queue,optimized_render_queue%s,extra_display_ts%s,optimized_total_render_queue%s,avg_dec_time,avg_dec_tot_time,avg_render_time,avg_proc_time,tot_frame_no,tot_queue_cnt%s,network_big_frame_induced_queue%s,network_i_frame_induced_queue%s,network_dl_jitter_induced_queue%s,network_stall_induced_queue%s,network_packet_loss_induced_queue%s,render_jitter_induced_queue%s,server_jitter_induced_queue%s,decoder_jitter_induced_queue%s,display_jitter_induced_queue%s,near_vsync_jitter_induced_queue%s,netts_over100_cnt,displayts_over12_cnt,large_renderinterval_cnt,quick_drop_failed_cnt%s,quick_drop_fail_ratio%s,quick_drop_missed_cnt%s,quick_drop_miss_ratio%s,quick_drop_total_cnt%s,exploitable_network_big_frame_induced_queue%s,exploitable_network_i_frame_induced_queue%s,exploitable_network_dl_jitter_induced_queue%s,exploitable_network_stall_induced_queue%s,exploitable_network_packet_loss_induced_queue%s,exploitable_render_jitter_induced_queue%s,exploitable_server_jitter_induced_queue%s,exploitable_decoder_jitter_induced_queue%s,exploitable_display_jitter_induced_queue%s,exploitable_near_vsync_jitter_induced_queue%s,biggest_render_jitter_queue%s,biggest_network_jitter_queue%s,biggest_decode_jitter_queue%s,biggest_display_jitter_queue%s,tearing_freq%s,smooth_std%s\n"
             % (
+                postfix,
+                postfix,
                 postfix,
                 postfix,
                 postfix,
@@ -2599,7 +2682,13 @@ def process_all_data_multithread(
         header = "file_name,server_optim_enabled,client_optim_enabled,client_vsync_enabled,avg_dec_time,avg_dec_tot_time,avg_render_time,avg_proc_time,max_fps,min_fps,origin_fps,origin_render_queue"
         param_no = len(MULTI_PARAMS)
         for i in range(param_no):
-            header += ",valid_fps_%d,latency_%d,noloss_fps_%d" % (i + 1, i + 1, i + 1)
+            header += ",valid_fps_%d,latency_%d,noloss_fps_%d,tearing_freq_%d,smooth_std_%d" % (
+                i + 1,
+                i + 1,
+                i + 1,
+                i + 1,
+                i + 1,
+            )
         output_file.write(header + "\n")
         output_file.close()
 
@@ -2642,6 +2731,7 @@ def process_all_data_multithread(
                             DROP_FRAME_MODE,
                             BONUS_FPS_NO_THR,
                             ANCHOR_FRAME_EXTRAPOLATOR_MODE,
+                            False,
                         ),
                         callback=result.update_result,
                     )
@@ -2688,8 +2778,10 @@ if __name__ == "__main__":
             DROP_FRAME_MODE,
         )
         output_file.write(
-            "file_name,server_optim_enabled,client_optim_enabled,client_vsync_enabled,max_fps,min_fps,origin_fps,optimized_fps%s,origin_render_queue,optimized_render_queue%s,extra_display_ts%s,optimized_total_render_queue%s,avg_dec_time,avg_dec_tot_time,avg_render_time,avg_proc_time,tot_frame_no,tot_queue_cnt%s,network_big_frame_induced_queue%s,network_i_frame_induced_queue%s,network_dl_jitter_induced_queue%s,network_stall_induced_queue%s,network_packet_loss_induced_queue%s,render_jitter_induced_queue%s,server_jitter_induced_queue%s,decoder_jitter_induced_queue%s,display_jitter_induced_queue%s,near_vsync_jitter_induced_queue%s,bonus_fps%s,netts_over100_cnt,displayts_over12_cnt,large_renderinterval_cnt,quick_drop_failed_cnt%s,quick_drop_fail_ratio%s,quick_drop_missed_cnt%s,quick_drop_miss_ratio%s,quick_drop_total_cnt%s,exploitable_network_big_frame_induced_queue%s,exploitable_network_i_frame_induced_queue%s,exploitable_network_dl_jitter_induced_queue%s,exploitable_network_stall_induced_queue%s,exploitable_network_packet_loss_induced_queue%s,exploitable_render_jitter_induced_queue%s,exploitable_server_jitter_induced_queue%s,exploitable_decoder_jitter_induced_queue%s,exploitable_display_jitter_induced_queue%s,exploitable_near_vsync_jitter_induced_queue%s,biggest_render_jitter_queue%s,biggest_network_jitter_queue%s,biggest_decode_jitter_queue%s,biggest_display_jitter_queue%s\n"
+            "file_name,server_optim_enabled,client_optim_enabled,client_vsync_enabled,max_fps,min_fps,origin_fps,optimized_fps%s,origin_render_queue,optimized_render_queue%s,extra_display_ts%s,optimized_total_render_queue%s,avg_dec_time,avg_dec_tot_time,avg_render_time,avg_proc_time,tot_frame_no,tot_queue_cnt%s,network_big_frame_induced_queue%s,network_i_frame_induced_queue%s,network_dl_jitter_induced_queue%s,network_stall_induced_queue%s,network_packet_loss_induced_queue%s,render_jitter_induced_queue%s,server_jitter_induced_queue%s,decoder_jitter_induced_queue%s,display_jitter_induced_queue%s,near_vsync_jitter_induced_queue%s,bonus_fps%s,netts_over100_cnt,displayts_over12_cnt,large_renderinterval_cnt,quick_drop_failed_cnt%s,quick_drop_fail_ratio%s,quick_drop_missed_cnt%s,quick_drop_miss_ratio%s,quick_drop_total_cnt%s,exploitable_network_big_frame_induced_queue%s,exploitable_network_i_frame_induced_queue%s,exploitable_network_dl_jitter_induced_queue%s,exploitable_network_stall_induced_queue%s,exploitable_network_packet_loss_induced_queue%s,exploitable_render_jitter_induced_queue%s,exploitable_server_jitter_induced_queue%s,exploitable_decoder_jitter_induced_queue%s,exploitable_display_jitter_induced_queue%s,exploitable_near_vsync_jitter_induced_queue%s,biggest_render_jitter_queue%s,biggest_network_jitter_queue%s,biggest_decode_jitter_queue%s,biggest_display_jitter_queue%s,tearing_freq%s,smooth_std%s\n"
             % (
+                postfix,
+                postfix,
                 postfix,
                 postfix,
                 postfix,
@@ -2747,6 +2839,7 @@ if __name__ == "__main__":
                     DROP_FRAME_MODE,
                     BONUS_FPS_NO_THR,
                     ANCHOR_FRAME_EXTRAPOLATOR_MODE,
+                    False,
                     target_path,
                     True,
                 ),
@@ -2760,16 +2853,25 @@ if __name__ == "__main__":
 
     else:
         input_path = sys.argv[1]
-        if os.path.isdir(input_path):
+        extra_args = sys.argv[2:]
+        measure_runtime_flag = any(arg in ("--time", "--timing") for arg in extra_args)
+        multi_param_dir_flag = "--multi-param" in extra_args
+        positional_args = [arg for arg in extra_args if not arg.startswith("--")]
 
-            # process_all_data(sys.argv[1])
-            if len(sys.argv) == 3:
-                process_all_data_multithread(sys.argv[1], int(sys.argv[2]))
-            else:
-                process_all_data_multithread(sys.argv[1])
+        if os.path.isdir(input_path):
+            num_proc = 1
+            if positional_args and positional_args[0].isdigit():
+                num_proc = int(positional_args[0])
+            
+            process_all_data_multithread(
+                sys.argv[1], 
+                multi_param=multi_param_dir_flag, 
+                num_proc=num_proc
+            )
         elif os.path.isfile(input_path):
             # Support multi_param for single file: python simulator_v2.py file.csv 1
-            if len(sys.argv) == 3 and int(sys.argv[2]) == 1:
+            multi_param_flag = any(arg.isdigit() and int(arg) == 1 for arg in positional_args)
+            if multi_param_flag:
                 cal_mulit_para_result(input_path, print_log=PRINT_LOG)
             else:
                 cal_single_para_result(
@@ -2782,8 +2884,10 @@ if __name__ == "__main__":
                     enable_quick_drop=ENABLE_QUICK_DROP,
                     drop_frame_mode=DROP_FRAME_MODE,
                     bonus_fps_no_thr=BONUS_FPS_NO_THR,
+                    simulate_local=False,
                     print_log=PRINT_LOG,
                     print_debug_log=PRINT_DEBUG_LOG,
+                    measure_runtime=measure_runtime_flag,
                 )
         else:
             pass
